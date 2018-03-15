@@ -1,16 +1,19 @@
 clc
 close all
 clear all
-addpath(genpath('altmany-export_fig-83ee7fd'))
+addpath(genpath('altmany-export_fig-83ee7fd\'))
+addpath(genpath('denoisers\'))
 %% Input parameters 
-r        = im2double(imread('cameraman.tif'));
-sigma_w  = 0.1;
-A        = 'fft';
-seedNum  = 1;
+r            = im2double(imread('cameraman.tif'));
+sigma_w      = 0.1;
+A            = 'fft';
+seedNum      = 1;
+denoiserType = 'TV';
+realOnly     = true;
 figure, imshow(log10(abs(r)),[]), colorbar
 title('Object-Reflectance')
 set(gcf, 'Position', get(0, 'Screensize'));
-export_fig(['Figures\OpticalReflectance.png']);
+export_fig('Figures\OpticalReflectance.png');
 %% Generate w,g, and y form input-parameters
 [M,N]    = size(r);                                                         % Size of the input-image 
 g        = (sqrt(r)/2).*randn(M,N)+1j*(sqrt(r)/2).*randn(M,N);              % g ~ CN(0,D(r))
@@ -22,26 +25,46 @@ y        = y+w;                                                             % no
 figure, imshow(log10(abs(y)),[]), colorbar
 title('Noisy-Fourier domain')
 set(gcf, 'Position', get(0, 'Screensize'));
-export_fig(['Figures\NoisyFourierDomain.png']);
+export_fig('Figures\NoisyFourierDomain.png');
 figure, imshow(log10(abs(g)),[]), colorbar
 title('Complex-optical field')
 set(gcf, 'Position', get(0, 'Screensize'));
-export_fig(['Figures\ComplexOpticalField.png']);
-%% Compute c and mu 
-c  = (1/sigma_w^2)+r(:);                                                     % diagonal-elements of cov. matrix 
-inv= ifft2(y);                                                               % fourier-inverse of the observation
-mu = c.*(1/sigma_w^2)*inv(:);                                                 % mean of the posterior-distribution
+export_fig('Figures\ComplexOpticalField.png');
 %% Plug and play ADMM algorithm     
-maxIters = 25;
-v0       = abs(ifft2(y)).^2; 
-u0       = zeros(size(v));
+maxIters     = 25;
+v0           = abs(ifft2(y)).^2; 
+u0           = zeros(size(v0));
 sigmaLambda  = 0.5*sqrt(var(v0(:))); 
+sigman       = 0.2; 
+G            = denoiser(denoiserType,realOnly,sigman);
+logLikelihood= zeros(maxIters,1);
 
-vPrev    = v0;
-uPrev    = u0; 
+vPrev        = v0;
+uPrev        = u0; 
+rPrev        = v0-u0;
 
 for iters = 1:maxIters
-    r
-
-
+    [c,mu]     = computeCovarianceAndMean(y,sigma_w,rPrev);
+    rtildenext = vPrev-uPrev;
+    figure(2),
+    subplot(2,2,1), imshow(abs(rtildenext),[])
+    title('Input: Inversion-Op')
+    rNext      = inversionOperator(rtildenext,sigmaLambda,c,mu); 
+    subplot(2,2,2), imshow(abs(rtildenext),[])
+    title('Output: Inversion-Op')
+    vtildenext = rNext+uPrev;
+    subplot(2,2,3), imshow(abs(vtildenext),[])
+    title('Input: Denoiser-Op')
+    vNext      = G*vtildenext;
+    subplot(2,2,4), imshow(abs(vNext),[])
+    title('Output: Denoiser-Op')
+    
+    uNext                       = uPrev+rNext-vNext;
+    vPrev                       = vNext;
+    uPrev                       = uNext;
+    rPrev                       = rNext;
+    logLikelihood(iters)        = computeLoglikelihoodFunction(c,mu,rNext);
+end
+figure(3), plot(logLikelihood)
+title('Iterations')
 %%
