@@ -36,19 +36,12 @@ maxIters = 25;
 v0       = abs(ifft2(y)).^2; 
 u0       = zeros(size(v));
 sigmaLambda  = 0.5*sqrt(var(v0(:))); 
-sigman   = 0.1; 
+
 vPrev    = v0;
 uPrev    = u0; 
-rPrev    = v0-u0;
 
 for iters = 1:maxIters
-    rtildenext = vPrev-uPrev;
-    rnext      = inversionOperator(rtildenext,rPrev,sigmaLamda); 
-    vtildenext = rnext+uPrev;
-    vNext      = denoisingOperator(vtildenext,sigman);
-    unext      = uPrev+rnext-vnext;
-    vPrev      = vnext;
-    uPrev      = unext;
-    rPrev      = rnext;
-end
+    r
+
+
 %%
