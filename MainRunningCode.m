@@ -8,7 +8,7 @@ r            = im2double((imread('cameraman.tif')));
 sigma_w      = 0.1;
 A            = 'fft';
 seedNum      = 1;
-denoiserType = 'BM3D';
+denoiserType = 'TV';
 realOnly     = true;
 figure, imshow(abs(r),[]), colorbar
 title('Object-Reflectance')
@@ -35,9 +35,9 @@ maxIters     = 25;
 v0           = abs(ifft2(y)).^2; 
 u0           = zeros(size(v0));
 sigmaLambda  = 0.5*sqrt(var(v0(:))); 
-sigman       = 0.01; 
+sigman       = 2; 
 G            = denoiser(denoiserType,realOnly,sigman);
-logLikelihood= zeros(maxIters,1);
+costFunction= zeros(maxIters,1);
 
 vPrev        = v0;
 uPrev        = u0; 
@@ -49,7 +49,9 @@ for iters = 1:maxIters
     figure(2),
     subplot(2,2,1), imshow(abs(rtildenext),[]), colorbar
     title('Input: Inversion-Op')
-    rNext      = inversionOperator(rtildenext,sigmaLambda,c,mu); 
+    costFunctionPrior = computeCostFunction(c,mu,rPrev,sigmaLambda,rtildenext);
+    rNext             = inversionOperator(rtildenext,sigmaLambda,c,mu); 
+    costFunctionPost(iters)  = computeCostFunction(c,mu,rNext,sigmaLambda,rtildenext);
     subplot(2,2,2), imshow(abs(rtildenext),[]), colorbar
     title('Output: Inversion-Op')
     vtildenext = rNext+uPrev;
@@ -63,8 +65,6 @@ for iters = 1:maxIters
     vPrev                       = vNext;
     uPrev                       = uNext;
     rPrev                       = rNext;
-    logLikelihood(iters)        = computeLoglikelihoodFunction(c,mu,rNext);
 end
-figure(3), plot(logLikelihood)
-title('Iterations')
 %%
+figure, plot(costFunctionPost)
