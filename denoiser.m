@@ -52,7 +52,10 @@ methods
                     [RegularizedPhaseEstimate,~,~,~]     = perform_tv_denoising(PhaseEstimate,options);
                 end
              case 'BM3D'
+                 MaxVal = max(AmplitudeEstimate(:));
+                 AmplitudeEstimate = AmplitudeEstimate/max(AmplitudeEstimate(:));
                 [~, RegularizedAmplitudeEstimate] = BM3D(1, AmplitudeEstimate,25);
+                RegularizedAmplitudeEstimate = MaxVal*RegularizedAmplitudeEstimate;
                 if obj.realOnly == false
                     [~, RegularizedPhaseEstimate]     = BM3D(1, PhaseEstimate,25);
                 end
