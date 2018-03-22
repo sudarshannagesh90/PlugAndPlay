@@ -4,7 +4,7 @@ clear all
 addpath(genpath('altmany-export_fig-83ee7fd\'))
 addpath(genpath('denoisers\'))
 %% Input parameters 
-r            = im2double(rgb2gray(imread('CleanImages\ResolutionTarget.jpg')));
+r            = im2double(rgb2gray(imread('saturn.png')));
 r            = imresize(r,[256 256]);
 sigma_w      = 0.1;
 A            = 'fft';
@@ -65,8 +65,8 @@ for iters = 1:maxIters
     figure(2),
     subplot(2,2,1), imshow(abs(rtilde),[]), colorbar
     title('Input: Inversion-Op')
-    r                       = inversionOperator(rtilde,sigmaLambda,c,mu); 
-    costFunction(iters)     = abs(computeCostFunction(c,mu,r,sigmaLambda,r));
+    [r,costFunctionIteration]= inversionOperator(rtilde,sigmaLambda,c,mu); 
+    costFunction(iters)      = abs(computeCostFunction(c,mu,r,sigmaLambda,r));
     subplot(2,2,2), imshow(abs(r),[]), colorbar
     title('Output: Inversion-Op')
 
