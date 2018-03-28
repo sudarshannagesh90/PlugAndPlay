@@ -1,0 +1,149 @@
+classdef InverseModelRetriever < matlab.mixin.Copyable
+% CLASS INVERSEMODELGENERATOR -  Generates the inverse-model coherent
+%                                images under the assumption of the given 
+%                                forward-model. 
+%                                  .
+%              
+% Constructor:
+%   obj = InverseModelRetriever(objectSizePixels)
+%
+% Inputs:
+%    objectSizePixels          : Size of the object in pixels given as [rows,cols]. 
+%    inversionModelType        : Type of inversion-model: Can be ML, EM, EMPnP.
+%    noiseType                 : Noise type of the measurement (can be one of 'Poisson' or 'Gaussian').
+%    sigma_w                   : Std. deviation of the additive white-Gaussian noise. (optional)
+%
+% Output:
+%    obj                       : InverseModelRetriever type object with 
+%                              overloaded functions.
+%
+% Overloaded Methods:
+%    conj(obj)      : Returns a copy of the object.
+%    transpose(obj) : Returns a copy of the operator.
+%    ctranspose(obj): Returns a copy of the operator.
+%    mtimes(obj,x)  : Called when used as (obj*x). Applies the specified 
+%                     InverseModelRetriever on the measurements x after reshaping it to
+%                     objectSizePixels. The number of elements in x must be
+%                     prod(objectSizePixels).
+%
+
+% Author   : Sudarshan Nagesh             
+% Institute: NorthWestern University (NU) 
+properties(Constant)
+    listOfSupportedinversionModelType  = {'ML','EM'};
+end
+
+
+properties
+
+    % Properties provided as input.
+    objectSizePixels
+    inversionModelType
+end
+
+methods
+    % Function detectorSamplingOperator - Constructor.
+    function obj = ForwardModelGenerator(objectSizePixels,measurementType,forwardModelType,seedNum,noiseType,sigma_w)
+
+        obj.objectSizePixels                       = objectSizePixels;
+        obj.measurementType                        = measurementType;
+        obj.forwardModelType                       = forwardModelType;
+        obj.seedNum                                = seedNum;
+        obj.noiseType                              = noiseType;
+        obj.sigma_w                                = sigma_w;
+
+    end
+    
+    % Overloaded function for conj().
+    function res = conj(obj)
+        res = obj;
+    end
+    
+    % Overloaded function for .' (transpose()).
+    function res = transpose(obj)
+         res = obj;
+    end
+    
+    % Overloaded function for ' (ctranspose()).
+    function res = ctranspose(obj)
+        res = obj;
+    end
+    
+    % Overloaded function for * (mtimes()).
+    function res = mtimes(obj,x)
+        x   = reshape(x,obj.objectSizePixels);
+        x   = double(x);
+        %% Convert photons to electrons 
+        g        = sqrt(x/2).*randn(obj.objectSizePixels(1),obj.objectSizePixels(2))+1j*sqrt(x/2).*randn(obj.objectSizePixels(1),obj.objectSizePixels(2));   % g ~ CN(0,D(x))
+        if(strcmp(obj.measurementType,'Linear'))
+            if(strcmp(obj.forwardModelType,'Fourier'))
+                y = fftshift(fft2(g));
+            elseif (strcmp(obj.forwardModelType,'Identity'))
+                y = g;
+            end
+        end
+        if (strcmp(obj.noiseType,'Gaussian'))
+            w        = sqrt(obj.sigma_w/2)*randn([obj.objectSizePixels(1),obj.objectSizePixels(2)])+1j*sqrt(obj.sigma_w/2)*randn([obj.objectSizePixels(1),obj.objectSizePixels(2)]);    % w ~ CN(0,\sigma_w^2)
+            y        = y+w;  % noisy-measurements 
+        elseif (strcmp(obj.noiseType,'Poisson'))
+            y        = poissrnd(y);
+        end
+        res = [y(:);g(:)];
+    end
+end
+
+methods    
+    % Check validity of properties provided as input.
+    
+    function set.objectSizePixels(obj,objectSizePixels)
+        validateattributes(objectSizePixels,...
+                           {'numeric'},...
+                           {'nonsparse','vector','numel',2,'integer','positive'},...
+                           mfilename,'objectSizePixels',1);
+        if ~isa(objectSizePixels,'double')
+            objectSizePixels = double(objectSizePixels);
+        end
+        if ~isrow(objectSizePixels)
+            objectSizePixels = objectSizePixels(:)';
+        end
+        obj.objectSizePixels = objectSizePixels;
+    end
+    
+    function set.seedNum(obj,seedNum)
+        validateattributes(seedNum,...
+                           {'double','single'},...
+                           {'nonsparse','scalar','real','nonnan','finite','positive',},...
+                           mfilename,'seedNum');
+        if ~isa(seedNum,'double')
+            seedNum = double(seedNum);
+        end
+        obj.seedNum = seedNum;
+    end
+    function set.sigma_w(obj,sigma_w)
+        validateattributes(sigma_w,...
+                           {'double','single'},...
+                           {'nonsparse','scalar','real','nonnan','finite','positive',},...
+                           mfilename,'sigma_w');
+        if ~isa(sigma_w,'double')
+            sigma_w = double(sigma_w);
+        end
+        obj.sigma_w = sigma_w;
+    end
+    function set.inversionModelType(obj,inversionModelType)
+        if ~isempty(inversionModelType)
+            validateattributes(inversionModelType,...
+                               {'char'},{'scalartext','nonempty'},...
+                               mfilename,'transform',1);
+            if ~ismember(inversionModelType,obj.listOfSupportedinversionModelType)
+                error(strcat('Variable inversionModelType contains a method that is not supported.\n',...
+                             'Supported inversion model types are: %s.'),...
+                             strjoin(cellfun(@(x) sprintf('''%s''',x),obj.listOfSupportedinversionModelType,'UniformOutput',false),', '));
+            end
+        else
+            inversionModelType = 'ML';
+        end
+        obj.inversionModelType = inversionModelType;
+    end
+end
+
+end

@@ -1,0 +1,117 @@
+\documentclass[a4paper, 11pt]{article}
+\usepackage{comment} % enables the use of multi-line comments (\ifx \fi) 
+\usepackage{lipsum} %This package just generates Lorem Ipsum filler text. 
+\usepackage{fullpage} % changes the margin
+\usepackage{amsmath, amssymb,graphicx, subcaption}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+
+\begin{document}
+%Header-Make sure you update this information!!!!
+\section*{Problem-Statement}
+Let an object have a reflectance given by $r$. Then the complex-distribution of the object-field is given by $g\sim CN(0,D(r))$ \cite{CaseyOpticallyCoherent}. The problem statement is given 
+\begin{eqnarray*}
+y=Ag+w
+\end{eqnarray*}
+we would like to estimate $r$.
+\section{Case I: Linear measurements $(A=I)$}
+\subsection{Forward-model: }
+Let the reflectance of the object that is imaged be given by $r\in[0,1]$. Under the assumed model of the object-filed given by $g\sim CN(0,D(r))$, and the additive white-gaussian noise model we have that the measured complex-signal is given as 
+\begin{eqnarray*}
+y=g+w.
+\end{eqnarray*}
+A single-realization of this is given in Figure~\label{fig:forwardModel} with std. deviations of the noise at $\sigma_w=\{0.001,0.1\}$. 
+\begin{figure}[h]
+\centering
+\centering
+    \begin{subfigure}[b]{0.22\textwidth}
+        \includegraphics[width=\textwidth]{../Figures/OpticalReflectance.png}
+        \caption{Reflectance ($r$)}
+        \label{fig:reflectanceObject}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.22\textwidth}
+        \includegraphics[width=\textwidth]{../Figures/ComplexOpticalFieldAmplitude.png}
+        \caption{Optical-Field ($|g|$)}
+        \label{fig:opticalField}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.22\textwidth}
+        \includegraphics[width=\textwidth]{../Figures/NoisyMeasurementAmplitudeNoiseSigma1e-3.png}
+        \caption{($|y|$) $\sigma=0.001$}
+        \label{fig:noisyMeasurement1e-2}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.22\textwidth}
+        \includegraphics[width=\textwidth]{../Figures/NoisyMeasurementAmplitudeNoiseSigma1e-1.png}
+        \caption{($|y|$) $\sigma=0.1$}
+        \label{fig:noisyMeasurement1e-1}
+    \end{subfigure}
+\caption{An example-realization of the forward-model $y=g+w$ . Two realizations of the noisy observations are shown at std. deviations of $\{0.001, 0.1\}$.}
+\label{fig:forwardModel}
+\end{figure}
+
+\subsection{ML-estimate}
+The likelihood of the measurements $y$ is given as $p(y|r)\sim CN(0,D(r)+\sigma_w^2I)$. Applying the maximum-likelihood estimator to the above problem we have  
+\begin{eqnarray*}
+\hat{r}&=& \argmax p(y|r) \\
+&=& \argmax \frac{-1}{2} \Bigg( \log\left( (2\pi)^N|D(r)+\sigma_w^2I|\right)+y^H (D(r)+\sigma_w^2I)^{-1}y\Bigg) \\
+&=& \argmax \frac{-1}{2} \Bigg( \sum_{i=1}^N \log \left( 2\pi (r_i +\sigma_w ^2)\right) +\frac{|y_i|^2}{r_i +\sigma_w^2}\Bigg) \\
+\implies \hat{r_i}&=& \argmax \frac{-1}{2} \Bigg( \log \left( 2\pi (r_i +\sigma_w ^2)\right) +\frac{|y_i|^2}{r_i +\sigma_w^2} \Bigg) \\
+&=& \argmin \log \left( 2\pi (r_i +\sigma_w ^2)\right) +\frac{|y_i|^2}{r_i +\sigma_w^2}.
+\end{eqnarray*}
+Taking the differential of the above equation and equating to zero we get the ML estimate   
+\begin{eqnarray*}
+\hat{r}_i&=&|y_i|^2-\sigma_w^2.
+\end{eqnarray*}
+The reconstructions for varying degrees of noise is shown in Figure~\ref{fig:inversionModel} (a-d). 
+\begin{figure}[h]
+\centering
+\centering
+    \begin{subfigure}[b]{0.22\textwidth}
+        \includegraphics[width=\textwidth]{../Figures/MLReconstructionNoiseSigma1e-2.png}
+        \caption{ML ($\sigma=1e^{-2}$)}
+        \label{fig:ML-3}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.22\textwidth}
+        \includegraphics[width=\textwidth]{../Figures/MLReconstructionNoiseSigma1e-1.png}
+        \caption{ML ($\sigma=1e^{-1}$)}
+        \label{fig:ML-2}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.22\textwidth}
+        \includegraphics[width=\textwidth]{../Figures/MLReconstructionNoiseSigma1e0.png}
+        \caption{ML ($\sigma=1e^{0}$)}
+        \label{fig:ML-1}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.22\textwidth}
+        \includegraphics[width=\textwidth]{../Figures/MLReconstructionNoiseSigma1e1.png}
+        \caption{ML ($\sigma=1e^{1}$)}
+        \label{fig:ML-0}
+    \end{subfigure}
+\caption{An example-realization for different inversion-models. The inversions are shown for different std. deviations of $\{0.01,0.1, 1,10\}$.}
+\label{fig:inversionModel}
+\end{figure}
+\subsection{Plug and play (PnP) MAP estimate}
+The MAP estiamate for the above problem is given as 
+\begin{eqnarray}
+\hat{r}&=& \argmax \log p(r|y) \notag\\
+&=& \argmax \log p(y|r)+\log p(r). \label{eq:MAPestimate}
+\end{eqnarray}
+The PnP algorithm \cite{PnPalgorithm} decouples the above problem into one where we can apply the forward and prior models in the form of denoisers. Specifically, the PnP algorithm operates by splitting the unknown variable $r$ into two variables $r,v$ and converts the unconstrained optimization problem in (\ref{eq:MAPestimate}) into a constrained optimization problem 
+\begin{eqnarray} 
+\hat{r}=\underset{r=v}{\argmax} \log p(y|r)+\beta s(v)
+\end{eqnarray}
+where $\beta s(r)=p(r)$ is the prior term and $\beta$ is the tuning parameter. Adopting an ADMM approach to solve the above problem results in an algorithm containing two primary operations:(1) an inversion operator 
+\begin{eqnarray*}
+F(\tilde{r},\sigma_\lambda)=\underset{r}{\argmin} \left \{ \ell(r)+\frac{1}{2\sigma_\lambda^2} \|r-\tilde{r}\|^2 \right \}, 
+\end{eqnarray*}
+ where $\tilde{r}=v-u$ and the denoising operator is given as 
+\begin{eqnarray*}
+H(\tilde{v},\sigma_n)=\underset{v}{\argmin} \left \{ \frac{1}{2\sigma_n^2} \|v-\tilde{v}\|^2 +s(v)\right \} 
+\end{eqnarray*}
+where $\sigma_n^2=\beta \sigma_\lambda^2$ and $\tilde{v}=r+u$. Using the above notation the PnP algorithm is given as 
+
+
+\begin{thebibliography}{9}
+\bibitem{CaseyOpticallyCoherent} Casey J. Pellizzari et al. \emph{Optically coherent image formation and denoising using a plug and play inversion framework in OSA}.
+\bibitem{PnPalgorithm} S.~V.~Venkatakrishnan et al. \emph{Plug-and-play priors for model based reconstruction in GLOBALSIP}.
+\end{thebibliography}
+
+\end{document}
