@@ -13,6 +13,13 @@ classdef InverseModelRetriever < matlab.mixin.Copyable
 %    noiseType                 : Noise type of the measurement (can be one of 'Poisson' or 'Gaussian').
 %    sigma_w                   : Std. deviation of the additive
 %    white-Gaussian noise (optional). 
+%    maxIters                  : maximum number of iterations (for Plug and Play algorithm)
+%    sigmaLambda               : tuning-paramter for the PnP
+%    inversion-operator
+%    sigman                    : tuning-paramter for the PnP
+%    denoising-operator
+%    denoiserType              : type of denoiser-used ('TV')
+%    realOnly                  : object real-only (true for realOnly)
 %
 %
 % Output:
@@ -32,8 +39,9 @@ classdef InverseModelRetriever < matlab.mixin.Copyable
 % Author   : Sudarshan Nagesh             
 % Institute: NorthWestern University (NU) 
 properties(Constant)
-    listOfSupportedinversionModelType  = {'ML','EM','EMPnP'};
-    listOfSupportednoiseType        = {'Poisson','Gaussian'};
+    listOfSupportedinversionModelType  = {'ML','PnP'};
+    listOfSupportednoiseType           = {'Poisson','Gaussian'};
+    listOfSupporteddenoiserType        = {'TV'};
 end
 
 
@@ -43,15 +51,45 @@ properties
     inversionModelType
     noiseType
     sigma_w
+    maxIters
+    sigmaLambda
+    sigman
+    denoiserType
+    realOnly
 end
+methods (Static)
+    function [r]   = inversionOperator(y,rtilde,sigma_w,sigmaLambda)
+        r = zeros(size(rtilde));
+        for ind = 1:size(y,1)*size(y,2)
+            alpha1 = 1;
+            alpha2 = -rtilde(ind)+2*sigma_w^2;
+            alpha3 = -2*rtilde(ind)*sigma_w^2+sigma_w^4+sigmaLambda^2;
+            alpha4 = sigmaLambda^2*sigma_w^2-rtilde(ind)*sigma_w^4;
+            rootsList  = roots([alpha1 alpha2 alpha3 alpha4]);
+            imagList   = imag(rootsList);
+            [~,minPos] = min(imagList);
+            r(ind)     = real(rootsList(minPos)); 
+        end
+    end
+    function [v]   = denoisingOperator(vtilde,sigman,realOnly,denoiserType)
+        G = denoiser(denoiserType,realOnly,sigman);
+        v = G*vtilde;
+    end
+end
+
 
 methods
     % Function detectorSamplingOperator - Constructor.
-    function obj = InverseModelRetriever(objectSizePixels,inversionModelType,noiseType,sigma_w)
+    function obj = InverseModelRetriever(objectSizePixels,inversionModelType,noiseType,sigma_w,maxIters,sigmaLambda,sigman,denoiserType,realOnly)
         obj.objectSizePixels                       = objectSizePixels;
         obj.inversionModelType                     = inversionModelType;
         obj.noiseType                              = noiseType;
         obj.sigma_w                                = sigma_w;
+        obj.maxIters                               = maxIters;
+        obj.sigmaLambda                            = sigmaLambda;
+        obj.sigman                                 = sigman;
+        obj.denoiserType                           = denoiserType;
+        obj.realOnly                               = realOnly;
     end
     
     % Overloaded function for conj().
@@ -75,6 +113,19 @@ methods
         if (strcmp(obj.noiseType,'Gaussian'))
             if (strcmp(obj.inversionModelType,'ML'))
                 r        = abs(x).^2-obj.sigma_w^2;
+            end
+            if (strcmp(obj.inversionModelType,'PnP'))
+                v = x;
+                u = zeros(size(x));
+                for iters =1:obj.maxIters
+                    rtilde = v-u;
+                    r      = InverseModelRetriever.inversionOperator(x,rtilde,obj.sigma_w,obj.sigmaLambda);
+                    vtilde = r+u;
+                    v      = InverseModelRetriever.denoisingOperator(vtilde,obj.sigman,obj.realOnly,obj.denoiserType);
+                    u      = u+(r-v);
+                    figure(1), imshow(r,[]), colorbar
+                    pause(0.1)
+                 end
             end
         end
         res = [r(:)];
@@ -110,7 +161,7 @@ methods
     function set.inversionModelType(obj,inversionModelType)
         if ~isempty(inversionModelType)
             validateattributes(inversionModelType,...
-                               {'char'},{'scalartext','nonempty'},...
+                               {'char'},{'nonempty'},...
                                mfilename,'transform',1);
             if ~ismember(inversionModelType,obj.listOfSupportedinversionModelType)
                 error(strcat('Variable inversionModelType contains a method that is not supported.\n',...
@@ -125,7 +176,7 @@ methods
     function set.noiseType(obj,noiseType)
         if ~isempty(noiseType)
             validateattributes(noiseType,...
-                               {'char'},{'scalartext','nonempty'},...
+                               {'char'},{'nonempty'},...
                                mfilename,'transform',1);
             if ~ismember(noiseType,obj.listOfSupportednoiseType)
                 error(strcat('Variable noiseType contains a method that is not supported.\n',...
@@ -137,7 +188,71 @@ methods
         end
         obj.noiseType = noiseType;
     end
-    
+    function set.maxIters(obj,maxIters)
+        if ~isempty(maxIters)
+        validateattributes(maxIters,...
+                           {'double','single'},...
+                           {'nonsparse','scalar','real','nonnan','finite','positive',},...
+                           mfilename,'maxIters');
+        if ~isa(maxIters,'double')
+            maxIters = double(maxIters);
+        end
+        obj.maxIters = maxIters;
+        else
+            obj.maxIters = 25;
+        end
+    end
+    function set.sigmaLambda(obj,sigmaLambda)
+        if ~isempty(sigmaLambda)
+        validateattributes(sigmaLambda,...
+                           {'double','single'},...
+                           {'nonsparse','scalar','real','nonnan','finite','positive',},...
+                           mfilename,'sigmaLambda');
+        if ~isa(sigmaLambda,'double')
+            sigmaLambda = double(sigmaLambda);
+        end
+        obj.sigmaLambda = sigmaLambda;
+        else
+            obj.sigmaLambda = 0.1;
+        end
+    end
+    function set.sigman(obj,sigman)
+        if ~isempty(sigman)
+        validateattributes(sigman,...
+                           {'double','single'},...
+                           {'nonsparse','scalar','real','nonnan','finite','positive',},...
+                           mfilename,'sigman');
+        if ~isa(sigman,'double')
+            sigman = double(sigman);
+        end
+        obj.sigman = sigman;
+        else
+            obj.sigman = 0.1;
+        end
+    end
+    function set.denoiserType(obj,denoiserType)
+        if ~isempty(denoiserType)
+            validateattributes(denoiserType,...
+                               {'char'},{'nonempty'},...
+                               mfilename,'transform',1);
+            if ~ismember(denoiserType,obj.listOfSupporteddenoiserType)
+                error(strcat('Variable denoiserType contains a method that is not supported.\n',...
+                             'Supported noise types are: %s.'),...
+                             strjoin(cellfun(@(x) sprintf('''%s''',x),obj.listOfSupporteddenoiserType,'UniformOutput',false),', '));
+            end
+        else
+            denoiserType = 'TV';
+        end
+        obj.denoiserType = denoiserType;
+    end
+    function set.realOnly(obj,realOnly)
+        if ~isempty(realOnly)
+            validateattributes(realOnly,{'logical'},{'nonempty'});
+        else
+            realOnly = true; 
+        end
+        obj.realOnly = realOnly;
+    end
 end
 
 end

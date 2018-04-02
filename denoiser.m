@@ -3,7 +3,7 @@ classdef denoiser < matlab.mixin.Copyable
 %              
 % Constructor:
 %   obj =
-%   denoiser(denoiserType,sigmaAmplitude,sigmaPhase)
+%   denoiser(denoiserType,realOnly,sigman)
 %
 % Inputs:
 %    denoiserType    : Enter the type of denoiser

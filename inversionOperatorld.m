@@ -1,4 +1,4 @@
-function [rnext,costRoot] = inversionOperator(rtilde,sigmaLambda,c,mu)
+function [rnext,costRoot] = inversionOperatorld(rtilde,sigmaLambda,c,mu)
 [M,N] = size(rtilde);
 rtilde= rtilde(:);
 rnext = zeros(size(rtilde));
