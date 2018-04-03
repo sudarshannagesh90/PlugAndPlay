@@ -93,7 +93,6 @@ methods
         obj.sigman                                 = sigman;
         obj.denoiserType                           = denoiserType;
         obj.realOnly                               = realOnly;
-        obj.rGT                                    = rGT;
     end
     
     % Overloaded function for conj().
@@ -127,14 +126,14 @@ methods
                     vtilde = r+u;
                     v      = InverseModelRetriever.denoisingOperator(vtilde,obj.sigman,obj.realOnly,obj.denoiserType);
                     u      = u+(r-v);
-                    rPSNR(iters) = psnr(r,obj.rGT);
+                    rNRMSE(iters) = norm(r-obj.rGT)/norm(rGT);
                     costFunction(iters) = 0;
                     for ind = 1:size(r,1)*size(r,2)
-                        costFunction(iters) = costFunction(iters)+log(r(ind)+obj.sigma_w^2)+(abs(x(ind)^2))/(r(ind)+obj.sigma_w^2)+1/(2*obj.sigmaLambda^2)*(r(ind)-rtilde(ind))^2;
-                    end
+                        costFunction(iters) = costFunction(iters)+log(r(in))
                     figure(100), subplot(1,3,1), imshow(r,[]), colorbar
-                    subplot(1,3,2), plot(iters,rPSNR(iters),'o'), xlim([1 obj.maxIters]), hold on, title('PSNR')
-                    subplot(1,3,3), plot(iters,real(costFunction(iters)),'o'), xlim([1 obj.maxIters]), hold on, title('Cost-Function')
+                    subplot(1,3,2), plot(iters,rNRMSE,'o'), xlim([1 obj.maxIters]), hold on
+                    subplot(1,3,3), imshow(r,[]), colorbar
+                    
                     pause(0.1)
                  end
             end

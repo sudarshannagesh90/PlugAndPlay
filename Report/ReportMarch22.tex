@@ -69,42 +69,42 @@ The reconstructions for varying degrees of noise is shown in Figure~\ref{fig:inv
 \centering
     \begin{subfigure}[b]{0.22\textwidth}
         \includegraphics[width=\textwidth]{../Figures/MLReconstructionNoiseSigma1e-2.png}
-        \caption{ML ($\sigma=1e^{-2}$)}
+        \caption{ML ($\sigma_w=1e^{-2}$)}
         \label{fig:ML-2}
     \end{subfigure}
     \begin{subfigure}[b]{0.22\textwidth}
         \includegraphics[width=\textwidth]{../Figures/MLReconstructionNoiseSigma1e-1.png}
-        \caption{ML ($\sigma=1e^{-1}$)}
+        \caption{ML ($\sigma_w=1e^{-1}$)}
         \label{fig:ML-1}
     \end{subfigure}
     \begin{subfigure}[b]{0.22\textwidth}
         \includegraphics[width=\textwidth]{../Figures/MLReconstructionNoiseSigma1e0.png}
-        \caption{ML ($\sigma=1e^{0}$)}
+        \caption{ML ($\sigma_w=1e^{0}$)}
         \label{fig:ML0}
     \end{subfigure}
     \begin{subfigure}[b]{0.22\textwidth}
         \includegraphics[width=\textwidth]{../Figures/MLReconstructionNoiseSigma1e1.png}
-        \caption{ML ($\sigma=1e^{1}$)}
+        \caption{ML ($\sigma_w=1e^{1}$)}
         \label{fig:ML1}
     \end{subfigure}
     \begin{subfigure}[b]{0.22\textwidth}
-        \includegraphics[width=\textwidth]{../Figures/MLReconstructionNoiseSigma1e-2.png}
-        \caption{PnP ($\sigma=1e^{-2}$)}
+        \includegraphics[width=\textwidth]{../Figures/PnPReconstructionNoiseSigma1e-2.png}
+        \caption{PnP ($\sigma_w=1e^{-2}$)}
         \label{fig:PnP-2}
     \end{subfigure}
     \begin{subfigure}[b]{0.22\textwidth}
-        \includegraphics[width=\textwidth]{../Figures/MLReconstructionNoiseSigma1e-1.png}
-        \caption{PnP ($\sigma=1e^{-1}$)}
+        \includegraphics[width=\textwidth]{../Figures/PnPReconstructionNoiseSigma1e-1.png}
+        \caption{PnP ($\sigma_w=1e^{-1}$)}
         \label{fig:PnP-1}
     \end{subfigure}
     \begin{subfigure}[b]{0.22\textwidth}
-        \includegraphics[width=\textwidth]{../Figures/MLReconstructionNoiseSigma1e0.png}
-        \caption{PnP ($\sigma=1e^{0}$)}
+        \includegraphics[width=\textwidth]{../Figures/PnPReconstructionNoiseSigma1e0.png}
+        \caption{PnP ($\sigma_w=1e^{0}$)}
         \label{fig:PnP0}
     \end{subfigure}
     \begin{subfigure}[b]{0.22\textwidth}
-        \includegraphics[width=\textwidth]{../Figures/MLReconstructionNoiseSigma1e1.png}
-        \caption{PnP ($\sigma=1e^{1}$)}
+        \includegraphics[width=\textwidth]{../Figures/PnPReconstructionNoiseSigma1e1.png}
+        \caption{PnP ($\sigma_w=1e^{1}$)}
         \label{fig:PnP1}
     \end{subfigure}
 \caption{An example-realization for different inversion-models. The inversions are shown for different std. deviations of $\{0.01,0.1, 1,10\}$.}
@@ -132,7 +132,7 @@ F(\tilde{r_i},\sigma_\lambda)&=&\underset{r_i}{\argmin} \left \{ \log (r_i+\sigm
 &\implies&  \sigma_\lambda^2(r_i+\sigma_w^2)-|y_i|^2+(r_i-\tilde{r_i})(r_i+\sigma_w^2)^2 =0, \\
 &\implies&  r_i^3+(-\tilde{r}_i+2\sigma_w^2)r_i^2+(-2\tilde{r}_{i}\sigma_w^2+\sigma_w^4+\sigma_\lambda^2)r_i+(\sigma_\lambda^2\sigma_w^2-\tilde{r}_i\sigma_w^4 )=0. \\
 \end{eqnarray*}
-Thus the solution of the inversion-operator is simply the root of the cubic-polynomial. We are constrained that the root of the cubic-polynomial is root.  \\ \\
+Thus the solution of the inversion-operator is simply the root of the cubic-polynomial. We are constrained that the root of the cubic-polynomial is real.  \\ \\
 (2) \textbf{Denoising operator} 
 \begin{eqnarray*}
 H(\tilde{v},\sigma_n)=\underset{v}{\argmin} \left \{ \frac{1}{2\sigma_n^2} \|v-\tilde{v}\|^2 +s(v)\right \} 

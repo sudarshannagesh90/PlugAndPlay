@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2017.11.19)  1 APR 2018 18:39
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2017.11.19)  3 APR 2018 08:12
 entering extended mode
 **./ReportMarch22.tex
 (ReportMarch22.tex
@@ -336,13 +336,13 @@ Package pdftex.def Info: ../Figures/MLReconstructionNoiseSigma1e-2.png  used on
  input line 71. on input line 71.
 Package pdftex.def Info: Requested size: 99.65349pt x 96.24008pt on input line 
 71.
-<../Figures/MLReconstructionNoiseSigma1e-1.png, id=20, 563.10374pt x 541.27219p
+<../Figures/MLReconstructionNoiseSigma1e-1.png, id=20, 593.96906pt x 572.89032p
 t>
 File: ../Figures/MLReconstructionNoiseSigma1e-1.png Graphic file (type png)
 <use ../Figures/MLReconstructionNoiseSigma1e-1.png>
 Package pdftex.def Info: ../Figures/MLReconstructionNoiseSigma1e-1.png  used on
  input line 76. on input line 76.
-Package pdftex.def Info: Requested size: 99.65349pt x 95.78947pt on input line 
+Package pdftex.def Info: Requested size: 99.65349pt x 96.11378pt on input line 
 76.
 <../Figures/MLReconstructionNoiseSigma1e0.png, id=21, 599.23875pt x 569.87906pt
 >
@@ -359,29 +359,37 @@ Package pdftex.def Info: ../Figures/MLReconstructionNoiseSigma1e1.png  used on
 input line 86. on input line 86.
 Package pdftex.def Info: Requested size: 99.65349pt x 94.29555pt on input line 
 86.
-File: ../Figures/MLReconstructionNoiseSigma1e-2.png Graphic file (type png)
-<use ../Figures/MLReconstructionNoiseSigma1e-2.png>
-Package pdftex.def Info: ../Figures/MLReconstructionNoiseSigma1e-2.png  used on
- input line 91. on input line 91.
-Package pdftex.def Info: Requested size: 99.65349pt x 96.24008pt on input line 
+<../Figures/PnPReconstructionNoiseSigma1e-2.png, id=23, 601.4972pt x 573.64313p
+t>
+File: ../Figures/PnPReconstructionNoiseSigma1e-2.png Graphic file (type png)
+<use ../Figures/PnPReconstructionNoiseSigma1e-2.png>
+Package pdftex.def Info: ../Figures/PnPReconstructionNoiseSigma1e-2.png  used o
+n input line 91. on input line 91.
+Package pdftex.def Info: Requested size: 99.65349pt x 95.03217pt on input line 
 91.
-File: ../Figures/MLReconstructionNoiseSigma1e-1.png Graphic file (type png)
-<use ../Figures/MLReconstructionNoiseSigma1e-1.png>
-Package pdftex.def Info: ../Figures/MLReconstructionNoiseSigma1e-1.png  used on
- input line 96. on input line 96.
-Package pdftex.def Info: Requested size: 99.65349pt x 95.78947pt on input line 
+<../Figures/PnPReconstructionNoiseSigma1e-1.png, id=24, 601.4972pt x 569.87906p
+t>
+File: ../Figures/PnPReconstructionNoiseSigma1e-1.png Graphic file (type png)
+<use ../Figures/PnPReconstructionNoiseSigma1e-1.png>
+Package pdftex.def Info: ../Figures/PnPReconstructionNoiseSigma1e-1.png  used o
+n input line 96. on input line 96.
+Package pdftex.def Info: Requested size: 99.65349pt x 94.40858pt on input line 
 96.
-File: ../Figures/MLReconstructionNoiseSigma1e0.png Graphic file (type png)
-<use ../Figures/MLReconstructionNoiseSigma1e0.png>
-Package pdftex.def Info: ../Figures/MLReconstructionNoiseSigma1e0.png  used on 
-input line 101. on input line 101.
-Package pdftex.def Info: Requested size: 99.65349pt x 94.7651pt on input line 1
-01.
-File: ../Figures/MLReconstructionNoiseSigma1e1.png Graphic file (type png)
-<use ../Figures/MLReconstructionNoiseSigma1e1.png>
-Package pdftex.def Info: ../Figures/MLReconstructionNoiseSigma1e1.png  used on 
-input line 106. on input line 106.
-Package pdftex.def Info: Requested size: 99.65349pt x 94.29555pt on input line 
+<../Figures/PnPReconstructionNoiseSigma1e0.png, id=25, 601.4972pt x 569.87906pt
+>
+File: ../Figures/PnPReconstructionNoiseSigma1e0.png Graphic file (type png)
+<use ../Figures/PnPReconstructionNoiseSigma1e0.png>
+Package pdftex.def Info: ../Figures/PnPReconstructionNoiseSigma1e0.png  used on
+ input line 101. on input line 101.
+Package pdftex.def Info: Requested size: 99.65349pt x 94.40858pt on input line 
+101.
+<../Figures/PnPReconstructionNoiseSigma1e1.png, id=26, 603.75563pt x 573.64313p
+t>
+File: ../Figures/PnPReconstructionNoiseSigma1e1.png Graphic file (type png)
+<use ../Figures/PnPReconstructionNoiseSigma1e1.png>
+Package pdftex.def Info: ../Figures/PnPReconstructionNoiseSigma1e1.png  used on
+ input line 106. on input line 106.
+Package pdftex.def Info: Requested size: 99.65349pt x 94.68204pt on input line 
 106.
 
 Underfull \hbox (badness 10000) in paragraph at lines 122--124
@@ -390,8 +398,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 122--124
 
 [2 <../Figures/MLReconstructionNoiseSigma1e-2.png (PNG copy)> <../Figures/MLRec
 onstructionNoiseSigma1e-1.png (PNG copy)> <../Figures/MLReconstructionNoiseSigm
-a1e0.png (PNG copy)> <../Figures/MLReconstructionNoiseSigma1e1.png (PNG copy)>]
-
+a1e0.png (PNG copy)> <../Figures/MLReconstructionNoiseSigma1e1.png (PNG copy)> 
+<../Figures/PnPReconstructionNoiseSigma1e-2.png (PNG copy)> <../Figures/PnPReco
+nstructionNoiseSigma1e-1.png (PNG copy)> <../Figures/PnPReconstructionNoiseSigm
+a1e0.png (PNG copy)> <../Figures/PnPReconstructionNoiseSigma1e1.png (PNG copy)>
+]
 Underfull \hbox (badness 10000) in paragraph at lines 134--137
 
  []
@@ -409,10 +420,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 4409 strings out of 493312
- 66209 string characters out of 3138863
- 227877 words of memory out of 3000000
- 7879 multiletter control sequences out of 15000+200000
+ 4429 strings out of 493312
+ 67151 string characters out of 3138863
+ 228877 words of memory out of 3000000
+ 7895 multiletter control sequences out of 15000+200000
  13397 words of font info for 52 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  42i,10n,40p,473b,484s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -422,18 +433,19 @@ les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKT
 eX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/f
 onts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX 2.9/fonts/typ
 e1/public/amsfonts/cm/cmmi6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public
-/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts
-/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12
-.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/P
-rogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Fil
-es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Program Files/MiKTeX 
-2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/font
-s/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/p
-ublic/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/ams
-fonts/cm/cmti10.pfb>
-Output written on ReportMarch22.pdf (3 pages, 772610 bytes).
+/amsfonts/cm/cmmi7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts
+/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10
+.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/
+Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Fi
+les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX
+ 2.9/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Program Files/MiKTeX 2.9/fonts
+/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/p
+ublic/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/ams
+fonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/
+cmti10.pfb>
+Output written on ReportMarch22.pdf (3 pages, 927381 bytes).
 PDF statistics:
- 84 PDF objects out of 1000 (max. 8388607)
+ 92 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 41 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 61 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -7,7 +7,7 @@ addpath(genpath('denoisers\'))
 r                = im2double(rgb2gray(imread('saturn.png')));
 r                = imresize(r,[256 256]);
 objectSizePixels = [256 256];
-sigma_w          = 1e-3;
+sigma_w          = 1e1;
 measurementType  = 'Linear';
 forwardModelType = 'Identity';
 noiseType        = 'Gaussian';
@@ -46,7 +46,7 @@ sigmaLambda  = 0.5*sqrt(var(y(:)));
 sigman       = 0.75;
 denoiserType = 'TV';
 realOnly     = true;
-I                  = InverseModelRetriever(objectSizePixels,inversionModelType,noiseType,sigma_w,maxIters,sigmaLambda,sigman,denoiserType,realOnly);
+I                  = InverseModelRetriever(objectSizePixels,inversionModelType,noiseType,sigma_w,maxIters,sigmaLambda,sigman,denoiserType,r,realOnly);
 rML                = I*y;
 rML                = reshape(rML,objectSizePixels);
 figure, imshow(rML,[]), colorbar
@@ -55,12 +55,12 @@ set(gcf, 'Position', get(0, 'Screensize'));
 export_fig(['Figures\MLReconstructionNoiseSigma1e',num2str(log10(sigma_w)),'.png']);
 %% Plug and play ADMM algorithm (TV)      
 inversionModelType = 'PnP';
-maxIters     = 25;
-sigmaLambda  = 0.001; 
-sigman       = 0.1;
+maxIters     = 15;
+sigmaLambda  = 1/2*std(v);; 
+sigman       = beta*;
 denoiserType = 'TV';
 realOnly     = true;
-I            = InverseModelRetriever(objectSizePixels,inversionModelType,noiseType,sigma_w,maxIters,sigmaLambda,sigman,denoiserType,realOnly);
+I            = InverseModelRetriever(objectSizePixels,inversionModelType,noiseType,sigma_w,maxIters,sigmaLambda,sigman,denoiserType,r,realOnly);
 rPnP         = I*y;
 rPnP         = reshape(rPnP,objectSizePixels);
 figure, imshow(rPnP,[]), colorbar
