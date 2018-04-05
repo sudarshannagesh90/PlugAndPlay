@@ -110,6 +110,52 @@ The reconstructions for varying degrees of noise is shown in Figure~\ref{fig:inv
 \caption{An example-realization for different inversion-models. The inversions are shown for different std. deviations of $\{0.01,0.1, 1,10\}$.}
 \label{fig:inversionModel}
 \end{figure}
+\begin{figure}[h]
+\centering
+    \begin{subfigure}[b]{0.22\textwidth}
+        \includegraphics[width=\textwidth]{../Figures/MLReconstructionNoiseSigma1e-3Realization3.png}
+        \caption{ML ($N=3$)}
+        \label{fig:MLN1}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.22\textwidth}
+        \includegraphics[width=\textwidth]{../Figures/MLReconstructionNoiseSigma1e-3Realization6.png}
+        \caption{ML($N=6$)}
+        \label{fig:MLN3}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.22\textwidth}
+        \includegraphics[width=\textwidth]{../Figures/MLReconstructionNoiseSigma1e-3Realization20.png}
+        \caption{ML ($N=20$)}
+        \label{fig:MLN20}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.22\textwidth}
+        \includegraphics[width=\textwidth]{../Figures/MLReconstructionNoiseSigma1e-3Realization20.png}
+        \caption{ML ($N=40$)}
+        \label{fig:MLN40}
+    \end{subfigure}
+
+\begin{subfigure}[b]{0.22\textwidth}
+        \includegraphics[width=\textwidth]{../Figures/PnPReconstructionNoiseSigma1e-3Realization3.png}
+        \caption{PnP ($N=3$)}
+        \label{fig:PnP-2}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.22\textwidth}
+        \includegraphics[width=\textwidth]{../Figures/PnPReconstructionNoiseSigma1e-3Realization6.png}
+        \caption{PnP($N=6$)}
+        \label{fig:PnP-1}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.22\textwidth}
+        \includegraphics[width=\textwidth]{../Figures/PnPReconstructionNoiseSigma1e-3Realization20.png}
+        \caption{PnP ($N=20$)}
+        \label{fig:PnP0}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.22\textwidth}
+        \includegraphics[width=\textwidth]{../Figures/PnPReconstructionNoiseSigma1e-3Realization20.png}
+        \caption{PnP ($N=40$)}
+        \label{fig:PnP1}
+    \end{subfigure}
+\caption{Multi-image plug and play algorithm for: For the image with $\sigma_w=1e^{-3}$  .}
+\label{fig:inversionModel}
+\end{figure}
 \subsection{Plug and play (PnP) estimate (MAP)}
 The MAP estiamate for the above problem is given as 
 \begin{eqnarray}

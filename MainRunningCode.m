@@ -12,34 +12,36 @@ sigma_w          = 1e-3;
 measurementType  = 'Linear';
 forwardModelType = 'Identity';
 noiseType        = 'Gaussian';
-seedNum          = 100;
+numberOfRealizations = 20;
 figure, imshow(abs(r),[]), colorbar
 title('Object-Reflectance')
 set(gcf, 'Position', get(0, 'Screensize'));
 export_fig(['Figures',filesep,'OpticalReflectance.png']);
 %% Generate w,g, and y form input-parameters
-F        = ForwardModelGenerator(objectSizePixels,measurementType,forwardModelType,seedNum,noiseType,sigma_w);
+F        = ForwardModelGenerator(objectSizePixels,measurementType,forwardModelType,numberOfRealizations,noiseType,sigma_w);
 res      = F*r;
-y        = res(1:prod(objectSizePixels));
-g        = res(prod(objectSizePixels)+1:end);
-y        = reshape(y,objectSizePixels);
-g        = reshape(g,objectSizePixels);
-figure, imshow(abs(y),[]), colorbar
-title('Noisy-Measurement |y|')
-set(gcf, 'Position', get(0, 'Screensize'));
-export_fig(['Figures',filesep,'NoisyMeasurementAmplitudeNoiseSigma1e',num2str(log10(sigma_w)),'.png']);
-figure, imshow(angle(y),[]), colorbar
-title('Noisy-Measurement $\angle(y)$')
-set(gcf, 'Position', get(0, 'Screensize'));
-export_fig(['Figures',filesep,'NoisyMeasurementPhaseNoiseSigma1e',num2str(log10(sigma_w)),'.png']);
-figure, imshow(abs(g),[]), colorbar
-title('Complex-optical field (Amplitude)')
-set(gcf, 'Position', get(0, 'Screensize'));
-export_fig(['Figures',filesep,'ComplexOpticalFieldAmplitude.png']);
-figure, imshow(angle(g),[]), colorbar
-title('Complex-optical field (Phase)')
-set(gcf, 'Position', get(0, 'Screensize'));
-export_fig(['Figures',filesep,'ComplexOpticalFieldPhase.png']);
+for ind  = 1:numberOfRealizations
+    y        = res(1:prod(objectSizePixels),ind);
+    g        = res(prod(objectSizePixels)+1:end,ind);
+    y        = reshape(y,objectSizePixels);
+    g        = reshape(g,objectSizePixels);
+    figure(1), imshow(abs(y),[]), colorbar
+    title('Noisy-Measurement |y|')
+    set(gcf, 'Position', get(0, 'Screensize'));
+    export_fig(['Figures',filesep,'NoisyMeasurementAmplitudeNoiseSigma1e',num2str(log10(sigma_w)),'Realization',num2str(ind),'.png']);
+    figure(2), imshow(angle(y),[]), colorbar
+    title('Noisy-Measurement $\angle(y)$')
+    set(gcf, 'Position', get(0, 'Screensize'));
+    export_fig(['Figures',filesep,'NoisyMeasurementPhaseNoiseSigma1e',num2str(log10(sigma_w)),'Realization',num2str(ind),'.png']);
+    figure(3), imshow(abs(g),[]), colorbar
+    title('Complex-optical field (Amplitude)')
+    set(gcf, 'Position', get(0, 'Screensize'));
+    export_fig(['Figures',filesep,'ComplexOpticalFieldAmplitude','Realization',num2str(ind),'.png']);
+    figure(4), imshow(angle(g),[]), colorbar
+    title('Complex-optical field (Phase)')
+    set(gcf, 'Position', get(0, 'Screensize'));
+    export_fig(['Figures',filesep,'ComplexOpticalFieldPhase','Realization',num2str(ind),'.png']);
+end
 %% ML-reconstruction
 inversionModelType = 'ML';
 maxIters     = 25;
@@ -48,12 +50,16 @@ sigman       = 0.75;
 denoiserType = 'TV';
 realOnly     = true;
 I            = InverseModelRetriever(objectSizePixels,inversionModelType,noiseType,sigma_w,maxIters,sigmaLambda,sigman,denoiserType,r,realOnly);
-rML          = I*y;
+for ind = 1:numberOfRealizations
+    y          = res(1:prod(objectSizePixels),ind);
+    rML(:,ind) = I*y;
+end
+rML          = mean(rML,2);
 rML          = reshape(rML,objectSizePixels);
 figure, imshow(rML,[]), colorbar
 title('ML Reconstruction')
 set(gcf, 'Position', get(0, 'Screensize'));
-export_fig(['Figures',filesep,'MLReconstructionNoiseSigma1e',num2str(log10(sigma_w)),'.png']);
+export_fig(['Figures',filesep,'MLReconstructionNoiseSigma1e',num2str(log10(sigma_w)),'Realization',num2str(numberOfRealizations),'.png']);
 %% Plug and play ADMM algorithm (TV)      
 inversionModelType = 'PnP';
 maxIters     = 15;
@@ -62,10 +68,14 @@ sigman       = 0.02;
 denoiserType = 'TV';
 realOnly     = true;
 I            = InverseModelRetriever(objectSizePixels,inversionModelType,noiseType,sigma_w,maxIters,sigmaLambda,sigman,denoiserType,r,realOnly);
-rPnP         = I*y;
+for ind = 1:numberOfRealizations 
+    y          = res(1:prod(objectSizePixels),ind);
+    rPnP(:,ind)= I*y;
+end
+rPnP         = mean(rPnP,2);
 rPnP         = reshape(rPnP,objectSizePixels);
 figure, imshow(rPnP,[]), colorbar
 title(['EM-P&P ',denoiserType])
 set(gcf, 'Position', get(0, 'Screensize'));
-export_fig(['Figures',filesep,'PnPReconstructionNoiseSigma1e',num2str(log10(sigma_w)),'.png']);
+export_fig(['Figures',filesep,'PnPReconstructionNoiseSigma1e',num2str(log10(sigma_w)),'Realization',num2str(numberOfRealizations),'.png']);
 %%

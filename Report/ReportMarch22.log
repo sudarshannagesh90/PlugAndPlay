@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6650) (preloaded format=pdflatex 2018.4.3)  3 APR 2018 09:36
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6650) (preloaded format=pdflatex 2018.4.3)  4 APR 2018 20:36
 entering extended mode
 **./ReportMarch22.tex
 (ReportMarch22.tex
@@ -188,6 +188,33 @@ Document Style - pseudocode environments for use with the `algorithmicx' style
 
 LaTeX Warning: Label `fig:forwardModel' multiply defined.
 
+
+LaTeX Warning: Label `fig:PnP-2' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:PnP-2' multiply defined.
+
+
+LaTeX Warning: Label `fig:PnP-1' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:PnP-1' multiply defined.
+
+
+LaTeX Warning: Label `fig:PnP0' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:PnP0' multiply defined.
+
+
+LaTeX Warning: Label `fig:PnP1' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:PnP1' multiply defined.
+
+
+LaTeX Warning: Label `fig:inversionModel' multiply defined.
+
 )
 \openout1 = `ReportMarch22.aux'.
 
@@ -281,26 +308,26 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 14.
 (/home/sudarshan/.miktex/texmfs/install/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-<../Figures/OpticalReflectance.png, id=1, 601.4972pt x 573.64313pt>
+<../Figures/OpticalReflectance.png, id=1, 526.96875pt x 502.87875pt>
 File: ../Figures/OpticalReflectance.png Graphic file (type png)
 <use ../Figures/OpticalReflectance.png>
 Package pdftex.def Info: ../Figures/OpticalReflectance.png  used on input line 
 30.
-(pdftex.def)             Requested size: 99.65349pt x 95.03217pt.
-<../Figures/ComplexOpticalFieldAmplitude.png, id=2, 601.4972pt x 573.64313pt>
+(pdftex.def)             Requested size: 99.65349pt x 95.09523pt.
+<../Figures/ComplexOpticalFieldAmplitude.png, id=2, 526.96875pt x 502.87875pt>
 File: ../Figures/ComplexOpticalFieldAmplitude.png Graphic file (type png)
 <use ../Figures/ComplexOpticalFieldAmplitude.png>
 Package pdftex.def Info: ../Figures/ComplexOpticalFieldAmplitude.png  used on i
 nput line 35.
-(pdftex.def)             Requested size: 99.65349pt x 95.03217pt.
-<../Figures/NoisyMeasurementAmplitudeNoiseSigma1e-3.png, id=3, 601.4972pt x 569
-.87906pt>
+(pdftex.def)             Requested size: 99.65349pt x 95.09523pt.
+<../Figures/NoisyMeasurementAmplitudeNoiseSigma1e-3.png, id=3, 526.96875pt x 49
+9.11469pt>
 File: ../Figures/NoisyMeasurementAmplitudeNoiseSigma1e-3.png Graphic file (type
  png)
 <use ../Figures/NoisyMeasurementAmplitudeNoiseSigma1e-3.png>
 Package pdftex.def Info: ../Figures/NoisyMeasurementAmplitudeNoiseSigma1e-3.png
   used on input line 40.
-(pdftex.def)             Requested size: 99.65349pt x 94.40858pt.
+(pdftex.def)             Requested size: 99.65349pt x 94.38342pt.
 <../Figures/NoisyMeasurementAmplitudeNoiseSigma1e-1.png, id=4, 601.4972pt x 569
 .87906pt>
 File: ../Figures/NoisyMeasurementAmplitudeNoiseSigma1e-1.png Graphic file (type
@@ -336,12 +363,13 @@ File: ../Figures/MLReconstructionNoiseSigma1e0.png Graphic file (type png)
 Package pdftex.def Info: ../Figures/MLReconstructionNoiseSigma1e0.png  used on 
 input line 81.
 (pdftex.def)             Requested size: 99.65349pt x 94.7651pt.
-<../Figures/MLReconstructionNoiseSigma1e1.png, id=22, 602.25pt x 569.87906pt>
+<../Figures/MLReconstructionNoiseSigma1e1.png, id=22, 527.72156pt x 499.11469pt
+>
 File: ../Figures/MLReconstructionNoiseSigma1e1.png Graphic file (type png)
 <use ../Figures/MLReconstructionNoiseSigma1e1.png>
 Package pdftex.def Info: ../Figures/MLReconstructionNoiseSigma1e1.png  used on 
 input line 86.
-(pdftex.def)             Requested size: 99.65349pt x 94.29555pt.
+(pdftex.def)             Requested size: 99.65349pt x 94.24634pt.
 <../Figures/PnPReconstructionNoiseSigma1e-2.png, id=23, 601.4972pt x 573.64313p
 t>
 File: ../Figures/PnPReconstructionNoiseSigma1e-2.png Graphic file (type png)
@@ -363,15 +391,79 @@ File: ../Figures/PnPReconstructionNoiseSigma1e0.png Graphic file (type png)
 Package pdftex.def Info: ../Figures/PnPReconstructionNoiseSigma1e0.png  used on
  input line 101.
 (pdftex.def)             Requested size: 99.65349pt x 94.40858pt.
-<../Figures/PnPReconstructionNoiseSigma1e1.png, id=26, 603.75563pt x 573.64313p
+<../Figures/PnPReconstructionNoiseSigma1e1.png, id=26, 533.74406pt x 504.38437p
 t>
 File: ../Figures/PnPReconstructionNoiseSigma1e1.png Graphic file (type png)
 <use ../Figures/PnPReconstructionNoiseSigma1e1.png>
 Package pdftex.def Info: ../Figures/PnPReconstructionNoiseSigma1e1.png  used on
  input line 106.
-(pdftex.def)             Requested size: 99.65349pt x 94.68204pt.
+(pdftex.def)             Requested size: 99.65349pt x 94.17163pt.
+<../Figures/MLReconstructionNoiseSigma1e-3Realization3.png, id=27, 526.96875pt 
+x 499.11469pt>
+File: ../Figures/MLReconstructionNoiseSigma1e-3Realization3.png Graphic file (t
+ype png)
+<use ../Figures/MLReconstructionNoiseSigma1e-3Realization3.png>
+Package pdftex.def Info: ../Figures/MLReconstructionNoiseSigma1e-3Realization3.
+png  used on input line 116.
+(pdftex.def)             Requested size: 99.65349pt x 94.38342pt.
+<../Figures/MLReconstructionNoiseSigma1e-3Realization6.png, id=28, 526.96875pt 
+x 499.11469pt>
+File: ../Figures/MLReconstructionNoiseSigma1e-3Realization6.png Graphic file (t
+ype png)
+<use ../Figures/MLReconstructionNoiseSigma1e-3Realization6.png>
+Package pdftex.def Info: ../Figures/MLReconstructionNoiseSigma1e-3Realization6.
+png  used on input line 121.
+(pdftex.def)             Requested size: 99.65349pt x 94.38342pt.
+<../Figures/MLReconstructionNoiseSigma1e-3Realization20.png, id=29, 526.96875pt
+ x 499.11469pt>
+File: ../Figures/MLReconstructionNoiseSigma1e-3Realization20.png Graphic file (
+type png)
+<use ../Figures/MLReconstructionNoiseSigma1e-3Realization20.png>
+Package pdftex.def Info: ../Figures/MLReconstructionNoiseSigma1e-3Realization20
+.png  used on input line 126.
+(pdftex.def)             Requested size: 99.65349pt x 94.38342pt.
+File: ../Figures/MLReconstructionNoiseSigma1e-3Realization20.png Graphic file (
+type png)
+<use ../Figures/MLReconstructionNoiseSigma1e-3Realization20.png>
+Package pdftex.def Info: ../Figures/MLReconstructionNoiseSigma1e-3Realization20
+.png  used on input line 131.
+(pdftex.def)             Requested size: 99.65349pt x 94.38342pt.
+<../Figures/PnPReconstructionNoiseSigma1e-3Realization3.png, id=30, 526.96875pt
+ x 501.37312pt>
+File: ../Figures/PnPReconstructionNoiseSigma1e-3Realization3.png Graphic file (
+type png)
+<use ../Figures/PnPReconstructionNoiseSigma1e-3Realization3.png>
+Package pdftex.def Info: ../Figures/PnPReconstructionNoiseSigma1e-3Realization3
+.png  used on input line 137.
+(pdftex.def)             Requested size: 99.65349pt x 94.8105pt.
+<../Figures/PnPReconstructionNoiseSigma1e-3Realization6.png, id=31, 532.99126pt
+ x 502.12593pt>
+File: ../Figures/PnPReconstructionNoiseSigma1e-3Realization6.png Graphic file (
+type png)
+<use ../Figures/PnPReconstructionNoiseSigma1e-3Realization6.png>
+Package pdftex.def Info: ../Figures/PnPReconstructionNoiseSigma1e-3Realization6
+.png  used on input line 142.
+(pdftex.def)             Requested size: 99.65349pt x 93.88022pt.
+<../Figures/PnPReconstructionNoiseSigma1e-3Realization20.png, id=32, 532.99126p
+t x 502.12593pt>
+File: ../Figures/PnPReconstructionNoiseSigma1e-3Realization20.png Graphic file 
+(type png)
+<use ../Figures/PnPReconstructionNoiseSigma1e-3Realization20.png>
+Package pdftex.def Info: ../Figures/PnPReconstructionNoiseSigma1e-3Realization2
+0.png  used on input line 147.
+(pdftex.def)             Requested size: 99.65349pt x 93.88022pt.
+File: ../Figures/PnPReconstructionNoiseSigma1e-3Realization20.png Graphic file 
+(type png)
+<use ../Figures/PnPReconstructionNoiseSigma1e-3Realization20.png>
+Package pdftex.def Info: ../Figures/PnPReconstructionNoiseSigma1e-3Realization2
+0.png  used on input line 152.
+(pdftex.def)             Requested size: 99.65349pt x 93.88022pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 122--124
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 168--170
 
  []
 
@@ -382,28 +474,32 @@ a1e0.png (PNG copy)> <../Figures/MLReconstructionNoiseSigma1e1.png (PNG copy)>
 nstructionNoiseSigma1e-1.png (PNG copy)> <../Figures/PnPReconstructionNoiseSigm
 a1e0.png (PNG copy)> <../Figures/PnPReconstructionNoiseSigma1e1.png (PNG copy)>
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 134--137
+Underfull \hbox (badness 10000) in paragraph at lines 180--183
 
  []
 
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 147.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 193.
 
 (/home/sudarshan/.miktex/texmfs/install/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 147.
- [3]
-(ReportMarch22.aux)
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 193.
+ [3 <../Figures/MLReconstructionNoiseSigma1e-3Realization3.png (PNG copy)> <../
+Figures/MLReconstructionNoiseSigma1e-3Realization6.png (PNG copy)> <../Figures/
+MLReconstructionNoiseSigma1e-3Realization20.png (PNG copy)> <../Figures/PnPReco
+nstructionNoiseSigma1e-3Realization3.png (PNG copy)> <../Figures/PnPReconstruct
+ionNoiseSigma1e-3Realization6.png (PNG copy)> <../Figures/PnPReconstructionNois
+eSigma1e-3Realization20.png (PNG copy)>] [4] (ReportMarch22.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 4431 strings out of 495223
- 67464 string characters out of 3181464
- 223589 words of memory out of 3000000
- 7654 multiletter control sequences out of 15000+200000
+ 4469 strings out of 495223
+ 69347 string characters out of 3181464
+ 226657 words of memory out of 3000000
+ 7686 multiletter control sequences out of 15000+200000
  13397 words of font info for 52 fonts, out of 3000000 for 9000
  0 hyphenation exceptions out of 8191
  42i,10n,40p,473b,484s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -425,9 +521,9 @@ e1/public/amsfonts/cm/cmsy10.pfb></home/sudarshan/.miktex/texmfs/install/fonts/
 type1/public/amsfonts/cm/cmsy7.pfb></home/sudarshan/.miktex/texmfs/install/font
 s/type1/public/amsfonts/cm/cmsy8.pfb></home/sudarshan/.miktex/texmfs/install/fo
 nts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on ReportMarch22.pdf (3 pages, 927379 bytes).
+Output written on ReportMarch22.pdf (4 pages, 1123094 bytes).
 PDF statistics:
- 92 PDF objects out of 1000 (max. 8388607)
+ 101 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 61 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 91 words of extra memory for PDF output out of 10000 (max. 10000000)
 

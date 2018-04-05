@@ -11,7 +11,7 @@ classdef ForwardModelGenerator < matlab.mixin.Copyable
 %    objectSizePixels          : Size of the object in pixels given as [rows,cols]. 
 %    measurementType           : Type of measurements: Can be one of linear or phase-less.
 %    forwardModelType          : Type of forward-model used: Can be A=I(for identity) or A=F (for Fourier).  
-%    numberOfRealizations      : Number of realizations of the simulation (should be an integer). 
+%    numberOfRealiz                   : Sets the seed of the simulation (should be an integer). 
 %    noiseType                 : Noise type of the measurement (can be one of 'Poisson' or 'Gaussian').
 %    sigma_w                   : Std. deviation of the additive white-Gaussian noise. (optional)
 %
@@ -44,19 +44,19 @@ properties
     objectSizePixels
     measurementType
     forwardModelType
-    numberOfRealizations
+    seedNum
     noiseType
     sigma_w
 end
 
 methods
     % Function detectorSamplingOperator - Constructor.
-    function obj = ForwardModelGenerator(objectSizePixels,measurementType,forwardModelType,numberOfRealizations,noiseType,sigma_w)
+    function obj = ForwardModelGenerator(objectSizePixels,measurementType,forwardModelType,seedNum,noiseType,sigma_w)
 
         obj.objectSizePixels                       = objectSizePixels;
         obj.measurementType                        = measurementType;
         obj.forwardModelType                       = forwardModelType;
-        obj.numberOfRealizations                   = numberOfRealizations;
+        obj.seedNum                                = seedNum;
         obj.noiseType                              = noiseType;
         obj.sigma_w                                = sigma_w;
 
@@ -79,27 +79,24 @@ methods
     
     % Overloaded function for * (mtimes()).
     function res = mtimes(obj,x)
-        res = [];
-        for ind = 1:obj.numberOfRealizations
-            rng(ind)
-            x   = reshape(x,obj.objectSizePixels);
-            x   = double(x);
-            g        = sqrt(x/2).*randn(obj.objectSizePixels(1),obj.objectSizePixels(2))+1j*sqrt(x/2).*randn(obj.objectSizePixels(1),obj.objectSizePixels(2));   % g ~ CN(0,D(x))
-            if(strcmp(obj.measurementType,'Linear'))
-                if(strcmp(obj.forwardModelType,'Fourier'))
-                    y = fftshift(fft2(g));
-                elseif (strcmp(obj.forwardModelType,'Identity'))
-                    y = g;
-                end
+        rng(obj.seedNum)
+        x   = reshape(x,obj.objectSizePixels);
+        x   = double(x);
+        g        = sqrt(x/2).*randn(obj.objectSizePixels(1),obj.objectSizePixels(2))+1j*sqrt(x/2).*randn(obj.objectSizePixels(1),obj.objectSizePixels(2));   % g ~ CN(0,D(x))
+        if(strcmp(obj.measurementType,'Linear'))
+            if(strcmp(obj.forwardModelType,'Fourier'))
+                y = fftshift(fft2(g));
+            elseif (strcmp(obj.forwardModelType,'Identity'))
+                y = g;
             end
-            if (strcmp(obj.noiseType,'Gaussian'))
-                w        = sqrt(obj.sigma_w/2)*randn([obj.objectSizePixels(1),obj.objectSizePixels(2)])+1j*sqrt(obj.sigma_w/2)*randn([obj.objectSizePixels(1),obj.objectSizePixels(2)]);    % w ~ CN(0,\sigma_w^2)
-                y        = y+w;  % noisy-measurements 
-            elseif (strcmp(obj.noiseType,'Poisson'))
-                y        = poissrnd(y);
-            end
-            res(:,ind) = [y(:);g(:)];
         end
+        if (strcmp(obj.noiseType,'Gaussian'))
+            w        = sqrt(obj.sigma_w/2)*randn([obj.objectSizePixels(1),obj.objectSizePixels(2)])+1j*sqrt(obj.sigma_w/2)*randn([obj.objectSizePixels(1),obj.objectSizePixels(2)]);    % w ~ CN(0,\sigma_w^2)
+            y        = y+w;  % noisy-measurements 
+        elseif (strcmp(obj.noiseType,'Poisson'))
+            y        = poissrnd(y);
+        end
+        res = [y(:);g(:)];
     end
 end
 
@@ -120,15 +117,15 @@ methods
         obj.objectSizePixels = objectSizePixels;
     end
     
-    function set.numberOfRealizations(obj,numberOfRealizations)
-        validateattributes(numberOfRealizations,...
+    function set.seedNum(obj,seedNum)
+        validateattributes(seedNum,...
                            {'double','single'},...
                            {'nonsparse','scalar','real','nonnan','finite','positive',},...
-                           mfilename,'numberOfRealizations');
-        if ~isa(numberOfRealizations,'double')
-            numberOfRealizations = double(numberOfRealizations);
+                           mfilename,'seedNum');
+        if ~isa(seedNum,'double')
+            seedNum = double(seedNum);
         end
-        obj.numberOfRealizations = numberOfRealizations;
+        obj.seedNum = seedNum;
     end
     function set.sigma_w(obj,sigma_w)
         validateattributes(sigma_w,...
