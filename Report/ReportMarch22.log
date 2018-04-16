@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6650) (preloaded format=pdflatex 2018.4.3)  4 APR 2018 20:36
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6650) (preloaded format=pdflatex 2018.4.3)  16 APR 2018 12:50
 entering extended mode
 **./ReportMarch22.tex
 (ReportMarch22.tex
@@ -490,17 +490,17 @@ Figures/MLReconstructionNoiseSigma1e-3Realization6.png (PNG copy)> <../Figures/
 MLReconstructionNoiseSigma1e-3Realization20.png (PNG copy)> <../Figures/PnPReco
 nstructionNoiseSigma1e-3Realization3.png (PNG copy)> <../Figures/PnPReconstruct
 ionNoiseSigma1e-3Realization6.png (PNG copy)> <../Figures/PnPReconstructionNois
-eSigma1e-3Realization20.png (PNG copy)>] [4] (ReportMarch22.aux)
+eSigma1e-3Realization20.png (PNG copy)>] [4] [5] (ReportMarch22.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 4469 strings out of 495223
- 69347 string characters out of 3181464
- 226657 words of memory out of 3000000
- 7686 multiletter control sequences out of 15000+200000
- 13397 words of font info for 52 fonts, out of 3000000 for 9000
+ 4476 strings out of 495223
+ 69435 string characters out of 3181464
+ 226660 words of memory out of 3000000
+ 7693 multiletter control sequences out of 15000+200000
+ 14644 words of font info for 57 fonts, out of 3000000 for 9000
  0 hyphenation exceptions out of 8191
  42i,10n,40p,473b,484s stack positions out of 5000i,500n,10000p,200000b,50000s
 </home/sudarshan/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmbx10
@@ -520,10 +520,11 @@ public/amsfonts/cm/cmr7.pfb></home/sudarshan/.miktex/texmfs/install/fonts/type1
 e1/public/amsfonts/cm/cmsy10.pfb></home/sudarshan/.miktex/texmfs/install/fonts/
 type1/public/amsfonts/cm/cmsy7.pfb></home/sudarshan/.miktex/texmfs/install/font
 s/type1/public/amsfonts/cm/cmsy8.pfb></home/sudarshan/.miktex/texmfs/install/fo
-nts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on ReportMarch22.pdf (4 pages, 1123094 bytes).
+nts/type1/public/amsfonts/cm/cmti10.pfb></home/sudarshan/.miktex/texmfs/install
+/fonts/type1/public/amsfonts/symbols/msam10.pfb>
+Output written on ReportMarch22.pdf (5 pages, 1138817 bytes).
 PDF statistics:
- 101 PDF objects out of 1000 (max. 8388607)
+ 108 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  91 words of extra memory for PDF output out of 10000 (max. 10000000)
 

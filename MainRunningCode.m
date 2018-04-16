@@ -12,7 +12,7 @@ sigma_w          = 1e-3;
 measurementType  = 'Linear';
 forwardModelType = 'Identity';
 noiseType        = 'Gaussian';
-numberOfRealizations = 20;
+numberOfRealizations = 40;
 figure, imshow(abs(r),[]), colorbar
 title('Object-Reflectance')
 set(gcf, 'Position', get(0, 'Screensize'));
