@@ -69,45 +69,45 @@ The reconstructions for varying degrees of noise is shown in Figure~\ref{fig:inv
 \centering
     \begin{subfigure}[b]{0.22\textwidth}
         \includegraphics[width=\textwidth]{../Figures/MLReconstructionNoiseSigma1e-2.png}
-        \caption{ML ($\sigma_w=1e^{-2}$)}
+        \caption{\tiny ML ($\sigma_w=1e^{-2}$)}
         \label{fig:ML-2}
     \end{subfigure}
     \begin{subfigure}[b]{0.22\textwidth}
         \includegraphics[width=\textwidth]{../Figures/MLReconstructionNoiseSigma1e-1.png}
-        \caption{ML ($\sigma_w=1e^{-1}$)}
+        \caption{\tiny ML ($\sigma_w=1e^{-1}$)}
         \label{fig:ML-1}
     \end{subfigure}
     \begin{subfigure}[b]{0.22\textwidth}
         \includegraphics[width=\textwidth]{../Figures/MLReconstructionNoiseSigma1e0.png}
-        \caption{ML ($\sigma_w=1e^{0}$)}
+        \caption{\tiny ML ($\sigma_w=1e^{0}$)}
         \label{fig:ML0}
     \end{subfigure}
     \begin{subfigure}[b]{0.22\textwidth}
         \includegraphics[width=\textwidth]{../Figures/MLReconstructionNoiseSigma1e1.png}
-        \caption{ML ($\sigma_w=1e^{1}$)}
+        \caption{\tiny ML ($\sigma_w=1e^{1}$)}
         \label{fig:ML1}
     \end{subfigure}
     \begin{subfigure}[b]{0.22\textwidth}
-        \includegraphics[width=\textwidth]{../Figures/PnPReconstructionNoiseSigma1e-2.png}
-        \caption{PnP ($\sigma_w=1e^{-2}$)}
+        \includegraphics[width=\textwidth]{../Figures/PnPReconstructionNoiseSigma1e-4.png}
+        \caption{\tiny PnP-TV ($\sigma_w=1e^{-4}$)}
         \label{fig:PnP-2}
     \end{subfigure}
     \begin{subfigure}[b]{0.22\textwidth}
-        \includegraphics[width=\textwidth]{../Figures/PnPReconstructionNoiseSigma1e-1.png}
-        \caption{PnP ($\sigma_w=1e^{-1}$)}
+        \includegraphics[width=\textwidth]{../Figures/PnPReconstructionNoiseSigma1e-3.png}
+        \caption{\tiny PnP-TV ($\sigma_w=1e^{-3}$)}
         \label{fig:PnP-1}
     \end{subfigure}
     \begin{subfigure}[b]{0.22\textwidth}
-        \includegraphics[width=\textwidth]{../Figures/PnPReconstructionNoiseSigma1e0.png}
-        \caption{PnP ($\sigma_w=1e^{0}$)}
+        \includegraphics[width=\textwidth]{../Figures/PnPReconstructionNoiseSigma1e-2.png}
+        \caption{\tiny PnP-TV ($\sigma_w=1e^{-2}$)}
         \label{fig:PnP0}
     \end{subfigure}
     \begin{subfigure}[b]{0.22\textwidth}
-        \includegraphics[width=\textwidth]{../Figures/PnPReconstructionNoiseSigma1e1.png}
-        \caption{PnP ($\sigma_w=1e^{1}$)}
+        \includegraphics[width=\textwidth]{../Figures/PnPReconstructionNoiseSigma1e-1.png}
+        \caption{\tiny PnP-TV ($\sigma_w=1e^{-1}$)}
         \label{fig:PnP1}
     \end{subfigure}
-\caption{An example-realization for different inversion-models. The inversions are shown for different std. deviations of $\{0.01,0.1, 1,10\}$.}
+\caption{An example-realization for different inversion-models. The inversions are shown for different std. deviations of $\{1e^{-4},1e^{-3}, 1e^{-2},1e^{-1}\}$.}
 \label{fig:inversionModel}
 \end{figure}
 \begin{figure}[h]
@@ -135,22 +135,22 @@ The reconstructions for varying degrees of noise is shown in Figure~\ref{fig:inv
 
 \begin{subfigure}[b]{0.22\textwidth}
         \includegraphics[width=\textwidth]{../Figures/PnPReconstructionNoiseSigma1e-3Realization3.png}
-        \caption{PnP ($N=3$)}
+        \caption{PnP-TV ($N=3$)}
         \label{fig:PnP-2}
     \end{subfigure}
     \begin{subfigure}[b]{0.22\textwidth}
         \includegraphics[width=\textwidth]{../Figures/PnPReconstructionNoiseSigma1e-3Realization6.png}
-        \caption{PnP ($N=6$)}
+        \caption{PnP-TV ($N=6$)}
         \label{fig:PnP-1}
     \end{subfigure}
     \begin{subfigure}[b]{0.22\textwidth}
         \includegraphics[width=\textwidth]{../Figures/PnPReconstructionNoiseSigma1e-3Realization20.png}
-        \caption{PnP ($N=20$)}
+        \caption{PnP-TV ($N=20$)}
         \label{fig:PnP0}
     \end{subfigure}
     \begin{subfigure}[b]{0.22\textwidth}
         \includegraphics[width=\textwidth]{../Figures/PnPReconstructionNoiseSigma1e-3Realization20.png}
-        \caption{PnP ($N=40$)}
+        \caption{PnP-TV ($N=40$)}
         \label{fig:PnP1}
     \end{subfigure}
 \caption{Multi-image plug and play algorithm for: For the image with $\sigma_w=1e^{-3}$  .}
@@ -203,7 +203,8 @@ where $\sigma_n^2=\beta \sigma_\lambda^2$ and $\tilde{v}=r+u$. The denosing oper
 
 \subsubsection{Parameter-tuning}
 In the following analysis we assume that we know the true-value of $\sigma_w$. The parameters to be tuned for the problem are $\sigma_\lambda, \sigma_n$; which are essentially the tuning parameters for each of the proximal-operators (inversion and denoising). 
-
+\clearpage
+\newpage
 \subsection{Regularization by denoising}
 Recently there has been an alternative approach instead of the ADMM or Plug-and-Play ($P^3$) approach: regularization by denoising \cite{RED}. The key idea of the paper is the regularization proposed in the paper:
 \begin{eqnarray*}
@@ -223,20 +224,115 @@ The RED paper assumes that a denoiser can be assumed to be a psuedo-linear filte
 \begin{eqnarray*}
 f(x)=W(x)x. 
 \end{eqnarray*}
-The following properties are further assumed on the denoiser:
-\subsection{Solving the above regularized optimization problem}
+The following properties are further assumed on the denoiser (\textbf{to be completed}).
+\subsection{Solving the regularized optimization problem}
 A general inverse-problem is of the form 
 \begin{eqnarray*}
 \hat{x}=\underset{x}{\argmin} \quad E(x) \triangleq \ell(x,y)+\frac{\lambda}{2}x^T[x-f(x)]. 
 \end{eqnarray*}
 The gradient of the above expression is of the form 
 \begin{eqnarray*}
-\nabla_xE(x)=\nabla_x\ell(y,x)+\frac{\lambda}{2}\nabla_x\{x^T(x-f(x))\}
+\nabla_xE(x)&=&\nabla_x\ell(y,x)+\frac{\lambda}{2}\nabla_x\{x^T(x-f(x))\} \\
+&=&\nabla_x\ell(y,x)+\lambda(x-f(x)). 
 \end{eqnarray*}
+With the above formulation, a gradient-descent based iterative approach would consist of the following iterations:
+\begin{eqnarray*}
+\hat{x}_{k+1}=\hat{x}_k-\mu \nabla_xE(x)|_{\hat{x}_k}. 
+\end{eqnarray*}
+\subsection{Regularization by denoising for reflectance-estimation }
+The regularization by denoising approach for the reflectance-reconstruction problem is given as 
+\begin{eqnarray*}
+\hat{r}&=&\underset{r}{\argmin} \quad \ell(r,y)+\lambda \rho(r) \\
+&=& \underset{r}{\argmin} \quad \sum_{i=1}^N \left(\log (2\pi (r_i+\sigma_w^2))+\frac{|y_i|^2}{r_i+\sigma_w^2}\right) + \frac{\lambda}{2} r^T\{r-f(r)\} \\
+&=&  \underset{r}{\argmin} \quad E(r). 
+\end{eqnarray*}
+The RED algorithm for using this procedure is of the form 
+\begin{eqnarray*}
+\hat{r}_{k+1}=\hat{r}_k-\mu \nabla_rE(r)|_{\hat{r}_k}, 
+\end{eqnarray*}
+where 
+\begin{eqnarray*}
+\nabla_rE(r)&=& \left(\sum_{i=1}^N \frac{1}{2\pi(r_i+\sigma_w^2)}-\frac{|y_i|^2}{(r_i+\sigma_w^2)^2}\right)+\lambda(r-f(r)). 
+\end{eqnarray*}
+
+\clearpage 
+\newpage 
+\subsection{Direct CNN-approach}
+Recently we have tried another direct CNN approach to directly learn the mapping from $|y|$ to $r$. In this approach we learn the mapping from $|y|$ to $r$ by training a convolutional neural network (CNN) on the image pairs from the phase-less measurements to the reflectance of the object. The network architecture that we use follows from the network that has been used for the perceptual-loss extraction paper in SRNET \cite{SRNET}. \\
+The architecture that we used is outlined in Tables~\ref{networkArch}. A residual and convolution block is shown in Figures~\ref{residualConvBlock}. The results of using testing the trained CNN on the test data is shown in Figure~\ref{fig:outputFig}. 
+\begin{figure}
+\centering
+\includegraphics[width=0.5\textwidth]{../Figures/residualConvBlock.pdf}
+\caption{A sample residual and conolutional block.}
+\label{residualConvBlock}
+\end{figure}
+
+\begin{table}
+\begin{center}
+    \begin{tabular}{ | c | c |}
+    \hline
+    Layer & Activation-size  \\ \hline
+    Input & $3\times 224 \times 224$  \\ \hline
+    $64 \times 9\times 9$ convBlock & $64 \times 224 \times 224$  \\ \hline
+    Residual block $64$ filters& $64 \times 224 \times 224$  \\ \hline
+    Residual block $64$ filters& $64 \times 224 \times 224$  \\ \hline
+    Residual block $64$ filters& $64 \times 224 \times 224$  \\ \hline
+    Residual block $64$ filters& $64 \times 224 \times 224$  \\ \hline
+    $64 \times 3 \times 3$ convBlock & $64 \times 224 \times 224$  \\ \hline
+    $3 \times 9\times 9$ conv2d & $3 \times 224 \times 224$  \\ \hline
+    batchNormalization & $3$  \\ \hline
+    \end{tabular}
+\end{center}
+\caption{Network architecture used to generate results in Figure~\ref{fig:outputFig}.}
+\label{networkArch}
+\end{table}
+\begin{figure}[!h]
+\centering
+\begin{subfigure}[b]{0.22\textwidth}
+        \includegraphics[width=\textwidth]{/mnt/temp/data/coherentImageFormation/results/GT.png}
+        \caption{GT}
+        \label{fig:GT}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.22\textwidth}
+        \includegraphics[width=\textwidth]{/mnt/temp/data/coherentImageFormation/results/inputImg.png}
+        \caption{Input image}
+        \label{fig:inputImg}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.22\textwidth}
+        \includegraphics[width=\textwidth]{/mnt/temp/data/coherentImageFormation/results/outputImg.png}
+        \caption{Output-Img}
+        \label{fig:outputImg}
+    \end{subfigure}
+\caption{The learning-rate used to define this network is $0.01$ with a step-decay parameter of $0.1$ and a step-list being $[10, 25]$. The number of training-epochs is $100$.}
+\label{fig:outputFig}
+\end{figure}
+
+\begin{figure}[!h]
+\centering
+\begin{subfigure}[b]{0.22\textwidth}
+        \includegraphics[width=\textwidth]{/mnt/temp/data/coherentImageFormation/results/GT1.png}
+        \caption{GT}
+        \label{fig:GT}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.22\textwidth}
+        \includegraphics[width=\textwidth]{/mnt/temp/data/coherentImageFormation/results/inputImg1.png}
+        \caption{Input image}
+        \label{fig:inputImg}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.22\textwidth}
+        \includegraphics[width=\textwidth]{/mnt/temp/data/coherentImageFormation/results/outputImg1.png}
+        \caption{Output-Img}
+        \label{fig:outputImg}
+    \end{subfigure}
+\caption{The learning-rate used to define this network is $0.01$ with a step-decay parameter of $0.1$ and a step-list being $[10, 25]$. The number of training-epochs is $100$. We use a deeper-architecture in comparison to the SRNET architecture.}
+\label{fig:outputFig}
+\end{figure}
+
 \begin{thebibliography}{9}
 \bibitem{CaseyOpticallyCoherent} Casey J. Pellizzari et al. \emph{Optically coherent image formation and denoising using a plug and play inversion framework in OSA}.
 \bibitem{PnPalgorithm} S.~V.~Venkatakrishnan et al. \emph{Plug-and-play priors for model based reconstruction in GLOBALSIP}.
 \bibitem{RED} Y.~Romano et al. \emph{The little engine that could: Regularization by denoising}.
+\bibitem{SRNET} J.~Johnson et al. \emph{Perceptual Losses for Real-Time Style Transfer and Super-Resolution}.
 \end{thebibliography}
 
 \end{document}

@@ -32,11 +32,10 @@
 \newlabel{sub@fig:PnP0}{{g}{2}}
 \newlabel{fig:PnP1}{{2h}{2}}
 \newlabel{sub@fig:PnP1}{{h}{2}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces An example-realization for different inversion-models. The inversions are shown for different std. deviations of $\{0.01,0.1, 1,10\}$.\relax }}{2}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces An example-realization for different inversion-models. The inversions are shown for different std. deviations of $\{1e^{-4},1e^{-3}, 1e^{-2},1e^{-1}\}$.\relax }}{2}}
 \newlabel{fig:inversionModel}{{2}{2}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {1.3}Plug and play (PnP) estimate (MAP)}{2}}
 \newlabel{eq:MAPestimate}{{1}{2}}
-\citation{RED}
 \newlabel{fig:MLN1}{{3a}{3}}
 \newlabel{sub@fig:MLN1}{{a}{3}}
 \newlabel{fig:MLN3}{{3b}{3}}
@@ -56,12 +55,37 @@
 \@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Multi-image plug and play algorithm for: For the image with $\sigma _w=1e^{-3}$ .\relax }}{3}}
 \newlabel{fig:inversionModel}{{3}{3}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {1.3.1}Parameter-tuning}{3}}
-\bibcite{CaseyOpticallyCoherent}{1}
-\bibcite{PnPalgorithm}{2}
 \@writefile{loa}{\contentsline {algorithm}{\numberline {1}{\ignorespaces Plug and Play ($y, \sigma _w,\sigma _\lambda ,\sigma _n$)\relax }}{4}}
 \newlabel{euclid}{{1}{4}}
 \newlabel{alg:PnP}{{1}{4}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.4}Regularization by denoising}{4}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.5}Properties of the denosier $f(x)$}{4}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.6}Solving the above regularized optimization problem}{4}}
+\citation{RED}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.4}Regularization by denoising}{5}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.5}Properties of the denosier $f(x)$}{5}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.6}Solving the regularized optimization problem}{5}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.7}Regularization by denoising for reflectance-estimation }{5}}
+\citation{SRNET}
+\bibcite{CaseyOpticallyCoherent}{1}
+\bibcite{PnPalgorithm}{2}
 \bibcite{RED}{3}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces A sample residual and conolutional block.\relax }}{7}}
+\newlabel{residualConvBlock}{{4}{7}}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Network architecture used to generate results in Figure\nobreakspace  {}5\hbox {}.\relax }}{7}}
+\newlabel{networkArch}{{1}{7}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.8}Direct CNN-approach}{7}}
+\bibcite{SRNET}{4}
+\newlabel{fig:GT}{{5a}{8}}
+\newlabel{sub@fig:GT}{{a}{8}}
+\newlabel{fig:inputImg}{{5b}{8}}
+\newlabel{sub@fig:inputImg}{{b}{8}}
+\newlabel{fig:outputImg}{{5c}{8}}
+\newlabel{sub@fig:outputImg}{{c}{8}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces The learning-rate used to define this network is $0.01$ with a step-decay parameter of $0.1$ and a step-list being $[10, 25]$. The number of training-epochs is $100$.\relax }}{8}}
+\newlabel{fig:outputFig}{{5}{8}}
+\newlabel{fig:GT}{{6a}{8}}
+\newlabel{sub@fig:GT}{{a}{8}}
+\newlabel{fig:inputImg}{{6b}{8}}
+\newlabel{sub@fig:inputImg}{{b}{8}}
+\newlabel{fig:outputImg}{{6c}{8}}
+\newlabel{sub@fig:outputImg}{{c}{8}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces The learning-rate used to define this network is $0.01$ with a step-decay parameter of $0.1$ and a step-list being $[10, 25]$. The number of training-epochs is $100$. We use a deeper-architecture in comparison to the SRNET architecture.\relax }}{8}}
+\newlabel{fig:outputFig}{{6}{8}}

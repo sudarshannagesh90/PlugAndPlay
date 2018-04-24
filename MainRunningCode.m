@@ -8,16 +8,16 @@ addpath(genpath(['denoisers',f]))
 r                = im2double(rgb2gray(imread('saturn.png')));
 r                = imresize(r,[256 256]);
 objectSizePixels = [256 256];
-sigma_w          = 1e-3;
+sigma_w          = 1e-4;
 measurementType  = 'Linear';
 forwardModelType = 'Identity';
 noiseType        = 'Gaussian';
-numberOfRealizations = 40;
+numberOfRealizations = 1;
 figure, imshow(abs(r),[]), colorbar
 title('Object-Reflectance')
 set(gcf, 'Position', get(0, 'Screensize'));
 export_fig(['Figures',filesep,'OpticalReflectance.png']);
-%% Generate w,g, and y form input-parameters
+%% Generate w, g, and y form input-parameters
 F        = ForwardModelGenerator(objectSizePixels,measurementType,forwardModelType,numberOfRealizations,noiseType,sigma_w);
 res      = F*r;
 for ind  = 1:numberOfRealizations
@@ -59,13 +59,14 @@ rML          = reshape(rML,objectSizePixels);
 figure, imshow(rML,[]), colorbar
 title('ML Reconstruction')
 set(gcf, 'Position', get(0, 'Screensize'));
-export_fig(['Figures',filesep,'MLReconstructionNoiseSigma1e',num2str(log10(sigma_w)),'Realization',num2str(numberOfRealizations),'.png']);
+export_fig(['Figures',filesep,'MLReconstructionNoiseSigma1e',num2str(log10(sigma_w)),'.png']);
 %% Plug and play ADMM algorithm (TV)      
 inversionModelType = 'PnP';
 maxIters     = 15;
 sigmaLambda  = 0.01; 
 sigman       = 0.02;
 denoiserType = 'TV';
+
 realOnly     = true;
 I            = InverseModelRetriever(objectSizePixels,inversionModelType,noiseType,sigma_w,maxIters,sigmaLambda,sigman,denoiserType,r,realOnly);
 for ind = 1:numberOfRealizations 
@@ -77,5 +78,5 @@ rPnP         = reshape(rPnP,objectSizePixels);
 figure, imshow(rPnP,[]), colorbar
 title(['EM-P&P ',denoiserType])
 set(gcf, 'Position', get(0, 'Screensize'));
-export_fig(['Figures',filesep,'PnPReconstructionNoiseSigma1e',num2str(log10(sigma_w)),'Realization',num2str(numberOfRealizations),'.png']);
+export_fig(['Figures',filesep,'PnPReconstructionNoiseSigma1e',num2str(log10(sigma_w)),'.png']);
 %%

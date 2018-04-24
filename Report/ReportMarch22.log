@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6650) (preloaded format=pdflatex 2018.4.3)  16 APR 2018 12:50
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6650) (preloaded format=pdflatex 2018.4.3)  24 APR 2018 16:37
 entering extended mode
 **./ReportMarch22.tex
 (ReportMarch22.tex
@@ -370,34 +370,34 @@ File: ../Figures/MLReconstructionNoiseSigma1e1.png Graphic file (type png)
 Package pdftex.def Info: ../Figures/MLReconstructionNoiseSigma1e1.png  used on 
 input line 86.
 (pdftex.def)             Requested size: 99.65349pt x 94.24634pt.
-<../Figures/PnPReconstructionNoiseSigma1e-2.png, id=23, 601.4972pt x 573.64313p
+<../Figures/PnPReconstructionNoiseSigma1e-4.png, id=23, 526.96875pt x 502.87875
+pt>
+File: ../Figures/PnPReconstructionNoiseSigma1e-4.png Graphic file (type png)
+<use ../Figures/PnPReconstructionNoiseSigma1e-4.png>
+Package pdftex.def Info: ../Figures/PnPReconstructionNoiseSigma1e-4.png  used o
+n input line 91.
+(pdftex.def)             Requested size: 99.65349pt x 95.09523pt.
+<../Figures/PnPReconstructionNoiseSigma1e-3.png, id=24, 526.96875pt x 502.87875
+pt>
+File: ../Figures/PnPReconstructionNoiseSigma1e-3.png Graphic file (type png)
+<use ../Figures/PnPReconstructionNoiseSigma1e-3.png>
+Package pdftex.def Info: ../Figures/PnPReconstructionNoiseSigma1e-3.png  used o
+n input line 96.
+(pdftex.def)             Requested size: 99.65349pt x 95.09523pt.
+<../Figures/PnPReconstructionNoiseSigma1e-2.png, id=25, 601.4972pt x 573.64313p
 t>
 File: ../Figures/PnPReconstructionNoiseSigma1e-2.png Graphic file (type png)
 <use ../Figures/PnPReconstructionNoiseSigma1e-2.png>
 Package pdftex.def Info: ../Figures/PnPReconstructionNoiseSigma1e-2.png  used o
-n input line 91.
+n input line 101.
 (pdftex.def)             Requested size: 99.65349pt x 95.03217pt.
-<../Figures/PnPReconstructionNoiseSigma1e-1.png, id=24, 601.4972pt x 569.87906p
+<../Figures/PnPReconstructionNoiseSigma1e-1.png, id=26, 601.4972pt x 569.87906p
 t>
 File: ../Figures/PnPReconstructionNoiseSigma1e-1.png Graphic file (type png)
 <use ../Figures/PnPReconstructionNoiseSigma1e-1.png>
 Package pdftex.def Info: ../Figures/PnPReconstructionNoiseSigma1e-1.png  used o
-n input line 96.
+n input line 106.
 (pdftex.def)             Requested size: 99.65349pt x 94.40858pt.
-<../Figures/PnPReconstructionNoiseSigma1e0.png, id=25, 601.4972pt x 569.87906pt
->
-File: ../Figures/PnPReconstructionNoiseSigma1e0.png Graphic file (type png)
-<use ../Figures/PnPReconstructionNoiseSigma1e0.png>
-Package pdftex.def Info: ../Figures/PnPReconstructionNoiseSigma1e0.png  used on
- input line 101.
-(pdftex.def)             Requested size: 99.65349pt x 94.40858pt.
-<../Figures/PnPReconstructionNoiseSigma1e1.png, id=26, 533.74406pt x 504.38437p
-t>
-File: ../Figures/PnPReconstructionNoiseSigma1e1.png Graphic file (type png)
-<use ../Figures/PnPReconstructionNoiseSigma1e1.png>
-Package pdftex.def Info: ../Figures/PnPReconstructionNoiseSigma1e1.png  used on
- input line 106.
-(pdftex.def)             Requested size: 99.65349pt x 94.17163pt.
 <../Figures/MLReconstructionNoiseSigma1e-3Realization3.png, id=27, 526.96875pt 
 x 499.11469pt>
 File: ../Figures/MLReconstructionNoiseSigma1e-3Realization3.png Graphic file (t
@@ -470,10 +470,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 168--170
 [2 <../Figures/MLReconstructionNoiseSigma1e-2.png (PNG copy)> <../Figures/MLRec
 onstructionNoiseSigma1e-1.png (PNG copy)> <../Figures/MLReconstructionNoiseSigm
 a1e0.png (PNG copy)> <../Figures/MLReconstructionNoiseSigma1e1.png (PNG copy)> 
-<../Figures/PnPReconstructionNoiseSigma1e-2.png (PNG copy)> <../Figures/PnPReco
-nstructionNoiseSigma1e-1.png (PNG copy)> <../Figures/PnPReconstructionNoiseSigm
-a1e0.png (PNG copy)> <../Figures/PnPReconstructionNoiseSigma1e1.png (PNG copy)>
-]
+<../Figures/PnPReconstructionNoiseSigma1e-4.png (PNG copy)> <../Figures/PnPReco
+nstructionNoiseSigma1e-3.png (PNG copy)> <../Figures/PnPReconstructionNoiseSigm
+a1e-2.png (PNG copy)> <../Figures/PnPReconstructionNoiseSigma1e-1.png (PNG copy
+)>]
 Underfull \hbox (badness 10000) in paragraph at lines 180--183
 
  []
@@ -490,16 +490,88 @@ Figures/MLReconstructionNoiseSigma1e-3Realization6.png (PNG copy)> <../Figures/
 MLReconstructionNoiseSigma1e-3Realization20.png (PNG copy)> <../Figures/PnPReco
 nstructionNoiseSigma1e-3Realization3.png (PNG copy)> <../Figures/PnPReconstruct
 ionNoiseSigma1e-3Realization6.png (PNG copy)> <../Figures/PnPReconstructionNois
-eSigma1e-3Realization20.png (PNG copy)>] [4] [5] (ReportMarch22.aux)
+eSigma1e-3Realization20.png (PNG copy)>] [4] [5
+
+] [6]
+<../Figures/residualConvBlock.pdf, id=56, 515.87047pt x 449.42052pt>
+File: ../Figures/residualConvBlock.pdf Graphic file (type pdf)
+<use ../Figures/residualConvBlock.pdf>
+Package pdftex.def Info: ../Figures/residualConvBlock.pdf  used on input line 2
+65.
+(pdftex.def)             Requested size: 226.48395pt x 197.3136pt.
+</mnt/temp/data/coherentImageFormation/results/GT.png, id=57, 224.84pt x 224.84
+pt>
+File: /mnt/temp/data/coherentImageFormation/results/GT.png Graphic file (type p
+ng)
+<use /mnt/temp/data/coherentImageFormation/results/GT.png>
+Package pdftex.def Info: /mnt/temp/data/coherentImageFormation/results/GT.png  
+used on input line 292.
+(pdftex.def)             Requested size: 99.65349pt x 99.6538pt.
+</mnt/temp/data/coherentImageFormation/results/inputImg.png, id=58, 224.84pt x 
+224.84pt>
+File: /mnt/temp/data/coherentImageFormation/results/inputImg.png Graphic file (
+type png)
+<use /mnt/temp/data/coherentImageFormation/results/inputImg.png>
+Package pdftex.def Info: /mnt/temp/data/coherentImageFormation/results/inputImg
+.png  used on input line 297.
+(pdftex.def)             Requested size: 99.65349pt x 99.6538pt.
+</mnt/temp/data/coherentImageFormation/results/outputImg.png, id=59, 224.84pt x
+ 224.84pt>
+File: /mnt/temp/data/coherentImageFormation/results/outputImg.png Graphic file 
+(type png)
+<use /mnt/temp/data/coherentImageFormation/results/outputImg.png>
+Package pdftex.def Info: /mnt/temp/data/coherentImageFormation/results/outputIm
+g.png  used on input line 302.
+(pdftex.def)             Requested size: 99.65349pt x 99.6538pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+</mnt/temp/data/coherentImageFormation/results/GT1.png, id=60, 224.84pt x 224.8
+4pt>
+File: /mnt/temp/data/coherentImageFormation/results/GT1.png Graphic file (type 
+png)
+<use /mnt/temp/data/coherentImageFormation/results/GT1.png>
+Package pdftex.def Info: /mnt/temp/data/coherentImageFormation/results/GT1.png 
+ used on input line 313.
+(pdftex.def)             Requested size: 99.65349pt x 99.6538pt.
+</mnt/temp/data/coherentImageFormation/results/inputImg1.png, id=61, 224.84pt x
+ 224.84pt>
+File: /mnt/temp/data/coherentImageFormation/results/inputImg1.png Graphic file 
+(type png)
+<use /mnt/temp/data/coherentImageFormation/results/inputImg1.png>
+Package pdftex.def Info: /mnt/temp/data/coherentImageFormation/results/inputImg
+1.png  used on input line 318.
+(pdftex.def)             Requested size: 99.65349pt x 99.6538pt.
+</mnt/temp/data/coherentImageFormation/results/outputImg1.png, id=62, 224.84pt 
+x 224.84pt>
+File: /mnt/temp/data/coherentImageFormation/results/outputImg1.png Graphic file
+ (type png)
+<use /mnt/temp/data/coherentImageFormation/results/outputImg1.png>
+Package pdftex.def Info: /mnt/temp/data/coherentImageFormation/results/outputIm
+g1.png  used on input line 323.
+(pdftex.def)             Requested size: 99.65349pt x 99.6538pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[7
+
+ <../Figures/residualConvBlock.pdf>] [8 </mnt/temp/data/coherentImageFormation/
+results/GT.png (PNG copy)> </mnt/temp/data/coherentImageFormation/results/input
+Img.png (PNG copy)> </mnt/temp/data/coherentImageFormation/results/outputImg.pn
+g (PNG copy)> </mnt/temp/data/coherentImageFormation/results/GT1.png (PNG copy)
+> </mnt/temp/data/coherentImageFormation/results/inputImg1.png (PNG copy)> </mn
+t/temp/data/coherentImageFormation/results/outputImg1.png (PNG copy)>]
+(ReportMarch22.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 4476 strings out of 495223
- 69435 string characters out of 3181464
- 226660 words of memory out of 3000000
- 7693 multiletter control sequences out of 15000+200000
+ 4524 strings out of 495223
+ 71389 string characters out of 3181464
+ 226738 words of memory out of 3000000
+ 7733 multiletter control sequences out of 15000+200000
  14644 words of font info for 57 fonts, out of 3000000 for 9000
  0 hyphenation exceptions out of 8191
  42i,10n,40p,473b,484s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -509,22 +581,23 @@ x12.pfb></home/sudarshan/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/
 cmex10.pfb></home/sudarshan/.miktex/texmfs/install/fonts/type1/public/amsfonts/
 cm/cmmi10.pfb></home/sudarshan/.miktex/texmfs/install/fonts/type1/public/amsfon
 ts/cm/cmmi12.pfb></home/sudarshan/.miktex/texmfs/install/fonts/type1/public/ams
-fonts/cm/cmmi6.pfb></home/sudarshan/.miktex/texmfs/install/fonts/type1/public/a
-msfonts/cm/cmmi7.pfb></home/sudarshan/.miktex/texmfs/install/fonts/type1/public
+fonts/cm/cmmi5.pfb></home/sudarshan/.miktex/texmfs/install/fonts/type1/public/a
+msfonts/cm/cmmi6.pfb></home/sudarshan/.miktex/texmfs/install/fonts/type1/public
 /amsfonts/cm/cmmi8.pfb></home/sudarshan/.miktex/texmfs/install/fonts/type1/publ
 ic/amsfonts/cm/cmr10.pfb></home/sudarshan/.miktex/texmfs/install/fonts/type1/pu
 blic/amsfonts/cm/cmr12.pfb></home/sudarshan/.miktex/texmfs/install/fonts/type1/
-public/amsfonts/cm/cmr7.pfb></home/sudarshan/.miktex/texmfs/install/fonts/type1
-/public/amsfonts/cm/cmr8.pfb></home/sudarshan/.miktex/texmfs/install/fonts/type
-1/public/amsfonts/cm/cmr9.pfb></home/sudarshan/.miktex/texmfs/install/fonts/typ
-e1/public/amsfonts/cm/cmsy10.pfb></home/sudarshan/.miktex/texmfs/install/fonts/
-type1/public/amsfonts/cm/cmsy7.pfb></home/sudarshan/.miktex/texmfs/install/font
-s/type1/public/amsfonts/cm/cmsy8.pfb></home/sudarshan/.miktex/texmfs/install/fo
-nts/type1/public/amsfonts/cm/cmti10.pfb></home/sudarshan/.miktex/texmfs/install
-/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on ReportMarch22.pdf (5 pages, 1138817 bytes).
+public/amsfonts/cm/cmr5.pfb></home/sudarshan/.miktex/texmfs/install/fonts/type1
+/public/amsfonts/cm/cmr6.pfb></home/sudarshan/.miktex/texmfs/install/fonts/type
+1/public/amsfonts/cm/cmr8.pfb></home/sudarshan/.miktex/texmfs/install/fonts/typ
+e1/public/amsfonts/cm/cmr9.pfb></home/sudarshan/.miktex/texmfs/install/fonts/ty
+pe1/public/amsfonts/cm/cmsy10.pfb></home/sudarshan/.miktex/texmfs/install/fonts
+/type1/public/amsfonts/cm/cmsy5.pfb></home/sudarshan/.miktex/texmfs/install/fon
+ts/type1/public/amsfonts/cm/cmsy8.pfb></home/sudarshan/.miktex/texmfs/install/f
+onts/type1/public/amsfonts/cm/cmti10.pfb></home/sudarshan/.miktex/texmfs/instal
+l/fonts/type1/public/amsfonts/symbols/msam10.pfb>
+Output written on ReportMarch22.pdf (8 pages, 1306535 bytes).
 PDF statistics:
- 108 PDF objects out of 1000 (max. 8388607)
+ 138 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 91 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 126 words of extra memory for PDF output out of 10000 (max. 10000000)
 

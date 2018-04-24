@@ -61,7 +61,7 @@ methods
                 end
              case 'DnCNN'
                 noiseSigmaAmplitude              = 22; % noiseSigma must be an integer between 0 and 255. 
-                [RegularizedAmplitudeEstimate]    = dnCNN(AmplitudeEstimate,noiseSigmaAmplitude);
+                [RegularizedAmplitudeEstimate]   = dnCNN(AmplitudeEstimate,noiseSigmaAmplitude);
                 if obj.realOnly == false
                     noiseSigmaPhase                  = 25; % noiseSigma must be an integer between 0 and 255. 
                     [RegularizedPhaseEstimate]        = dnCNN(PhaseEstimate,noiseSigmaPhase);
