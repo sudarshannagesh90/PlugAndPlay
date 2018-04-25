@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6650) (preloaded format=pdflatex 2018.4.3)  24 APR 2018 16:37
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6650) (preloaded format=pdflatex 2018.4.3)  25 APR 2018 14:20
 entering extended mode
 **./ReportMarch22.tex
 (ReportMarch22.tex
@@ -214,6 +214,27 @@ LaTeX Warning: Label `sub@fig:PnP1' multiply defined.
 
 
 LaTeX Warning: Label `fig:inversionModel' multiply defined.
+
+
+LaTeX Warning: Label `fig:GT' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:GT' multiply defined.
+
+
+LaTeX Warning: Label `fig:inputImg' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:inputImg' multiply defined.
+
+
+LaTeX Warning: Label `fig:outputImg' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:outputImg' multiply defined.
+
+
+LaTeX Warning: Label `fig:outputFig' multiply defined.
 
 )
 \openout1 = `ReportMarch22.aux'.
@@ -490,91 +511,153 @@ Figures/MLReconstructionNoiseSigma1e-3Realization6.png (PNG copy)> <../Figures/
 MLReconstructionNoiseSigma1e-3Realization20.png (PNG copy)> <../Figures/PnPReco
 nstructionNoiseSigma1e-3Realization3.png (PNG copy)> <../Figures/PnPReconstruct
 ionNoiseSigma1e-3Realization6.png (PNG copy)> <../Figures/PnPReconstructionNois
-eSigma1e-3Realization20.png (PNG copy)>] [4] [5
-
-] [6]
-<../Figures/residualConvBlock.pdf, id=56, 515.87047pt x 449.42052pt>
+eSigma1e-3Realization20.png (PNG copy)>] [4]
+<../Figures/residualConvBlock.pdf, id=49, 515.87047pt x 449.42052pt>
 File: ../Figures/residualConvBlock.pdf Graphic file (type pdf)
 <use ../Figures/residualConvBlock.pdf>
 Package pdftex.def Info: ../Figures/residualConvBlock.pdf  used on input line 2
-65.
-(pdftex.def)             Requested size: 226.48395pt x 197.3136pt.
-</mnt/temp/data/coherentImageFormation/results/GT.png, id=57, 224.84pt x 224.84
+14.
+(pdftex.def)             Requested size: 163.06795pt x 142.06195pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 215--215
+[]\OT1/cmr/m/n/10.95 Figure 4: |A sample residual and
+ []
+
+</mnt/temp/data/coherentImageFormation/results/learning_rate_comparison.pdf, id
+=50, 433.62pt x 289.08pt>
+File: /mnt/temp/data/coherentImageFormation/results/learning_rate_comparison.pd
+f Graphic file (type pdf)
+<use /mnt/temp/data/coherentImageFormation/results/learning_rate_comparison.pdf
+>
+Package pdftex.def Info: /mnt/temp/data/coherentImageFormation/results/learning
+_rate_comparison.pdf  used on input line 221.
+(pdftex.def)             Requested size: 163.06795pt x 108.7135pt.
+</mnt/temp/data/coherentImageFormation/results/GT.png, id=51, 224.84pt x 224.84
 pt>
 File: /mnt/temp/data/coherentImageFormation/results/GT.png Graphic file (type p
 ng)
 <use /mnt/temp/data/coherentImageFormation/results/GT.png>
 Package pdftex.def Info: /mnt/temp/data/coherentImageFormation/results/GT.png  
-used on input line 292.
+used on input line 247.
 (pdftex.def)             Requested size: 99.65349pt x 99.6538pt.
-</mnt/temp/data/coherentImageFormation/results/inputImg.png, id=58, 224.84pt x 
+</mnt/temp/data/coherentImageFormation/results/inputImg.png, id=52, 224.84pt x 
 224.84pt>
 File: /mnt/temp/data/coherentImageFormation/results/inputImg.png Graphic file (
 type png)
 <use /mnt/temp/data/coherentImageFormation/results/inputImg.png>
 Package pdftex.def Info: /mnt/temp/data/coherentImageFormation/results/inputImg
-.png  used on input line 297.
+.png  used on input line 252.
 (pdftex.def)             Requested size: 99.65349pt x 99.6538pt.
-</mnt/temp/data/coherentImageFormation/results/outputImg.png, id=59, 224.84pt x
+</mnt/temp/data/coherentImageFormation/results/outputImg.png, id=53, 224.84pt x
  224.84pt>
 File: /mnt/temp/data/coherentImageFormation/results/outputImg.png Graphic file 
 (type png)
 <use /mnt/temp/data/coherentImageFormation/results/outputImg.png>
 Package pdftex.def Info: /mnt/temp/data/coherentImageFormation/results/outputIm
-g.png  used on input line 302.
+g.png  used on input line 257.
 (pdftex.def)             Requested size: 99.65349pt x 99.6538pt.
+
+Overfull \hbox (17.0pt too wide) in paragraph at lines 211--264
+[]$[]$
+ []
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-</mnt/temp/data/coherentImageFormation/results/GT1.png, id=60, 224.84pt x 224.8
+</mnt/temp/data/coherentImageFormation/results/GT1.png, id=54, 224.84pt x 224.8
 4pt>
 File: /mnt/temp/data/coherentImageFormation/results/GT1.png Graphic file (type 
 png)
 <use /mnt/temp/data/coherentImageFormation/results/GT1.png>
 Package pdftex.def Info: /mnt/temp/data/coherentImageFormation/results/GT1.png 
- used on input line 313.
+ used on input line 268.
 (pdftex.def)             Requested size: 99.65349pt x 99.6538pt.
-</mnt/temp/data/coherentImageFormation/results/inputImg1.png, id=61, 224.84pt x
+</mnt/temp/data/coherentImageFormation/results/inputImg1.png, id=55, 224.84pt x
  224.84pt>
 File: /mnt/temp/data/coherentImageFormation/results/inputImg1.png Graphic file 
 (type png)
 <use /mnt/temp/data/coherentImageFormation/results/inputImg1.png>
 Package pdftex.def Info: /mnt/temp/data/coherentImageFormation/results/inputImg
-1.png  used on input line 318.
+1.png  used on input line 273.
 (pdftex.def)             Requested size: 99.65349pt x 99.6538pt.
-</mnt/temp/data/coherentImageFormation/results/outputImg1.png, id=62, 224.84pt 
+</mnt/temp/data/coherentImageFormation/results/outputImg1.png, id=56, 224.84pt 
 x 224.84pt>
 File: /mnt/temp/data/coherentImageFormation/results/outputImg1.png Graphic file
  (type png)
 <use /mnt/temp/data/coherentImageFormation/results/outputImg1.png>
 Package pdftex.def Info: /mnt/temp/data/coherentImageFormation/results/outputIm
-g1.png  used on input line 323.
+g1.png  used on input line 278.
 (pdftex.def)             Requested size: 99.65349pt x 99.6538pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
+</mnt/temp/data/coherentImageFormation/results/avg1.png, id=57, 224.84pt x 224.
+84pt>
+File: /mnt/temp/data/coherentImageFormation/results/avg1.png Graphic file (type
+ png)
+<use /mnt/temp/data/coherentImageFormation/results/avg1.png>
+Package pdftex.def Info: /mnt/temp/data/coherentImageFormation/results/avg1.png
+  used on input line 289.
+(pdftex.def)             Requested size: 99.65349pt x 99.6538pt.
+</mnt/temp/data/coherentImageFormation/results/avg3.png, id=58, 224.84pt x 224.
+84pt>
+File: /mnt/temp/data/coherentImageFormation/results/avg3.png Graphic file (type
+ png)
+<use /mnt/temp/data/coherentImageFormation/results/avg3.png>
+Package pdftex.def Info: /mnt/temp/data/coherentImageFormation/results/avg3.png
+  used on input line 294.
+(pdftex.def)             Requested size: 99.65349pt x 99.6538pt.
+</mnt/temp/data/coherentImageFormation/results/avg6.png, id=59, 224.84pt x 224.
+84pt>
+File: /mnt/temp/data/coherentImageFormation/results/avg6.png Graphic file (type
+ png)
+<use /mnt/temp/data/coherentImageFormation/results/avg6.png>
+Package pdftex.def Info: /mnt/temp/data/coherentImageFormation/results/avg6.png
+  used on input line 299.
+(pdftex.def)             Requested size: 99.65349pt x 99.6538pt.
+</mnt/temp/data/coherentImageFormation/results/avg20.png, id=60, 224.84pt x 224
+.84pt>
+File: /mnt/temp/data/coherentImageFormation/results/avg20.png Graphic file (typ
+e png)
+<use /mnt/temp/data/coherentImageFormation/results/avg20.png>
+Package pdftex.def Info: /mnt/temp/data/coherentImageFormation/results/avg20.pn
+g  used on input line 304.
+(pdftex.def)             Requested size: 99.65349pt x 99.6538pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[5
+
+ <../Figures/residualConvBlock.pdf> </mnt/temp/data/coherentImageFormation/resu
+lts/learning_rate_comparison.pdf
+
+pdfTeX warning: miktex-pdftex (file /mnt/temp/data/coherentImageFormation/resul
+ts/learning_rate_comparison.pdf): PDF inclusion: multiple pdfs with page group 
+included in a single page
+>] [6 </mnt/temp/data/coherentImageFormation/results/GT.png (PNG copy)> </mnt/t
+emp/data/coherentImageFormation/results/inputImg.png (PNG copy)> </mnt/temp/dat
+a/coherentImageFormation/results/outputImg.png (PNG copy)> </mnt/temp/data/cohe
+rentImageFormation/results/GT1.png (PNG copy)> </mnt/temp/data/coherentImageFor
+mation/results/inputImg1.png (PNG copy)> </mnt/temp/data/coherentImageFormation
+/results/outputImg1.png (PNG copy)> </mnt/temp/data/coherentImageFormation/resu
+lts/avg1.png (PNG copy)> </mnt/temp/data/coherentImageFormation/results/avg3.pn
+g (PNG copy)> </mnt/temp/data/coherentImageFormation/results/avg6.png (PNG copy
+)> </mnt/temp/data/coherentImageFormation/results/avg20.png (PNG copy)>]
 [7
 
- <../Figures/residualConvBlock.pdf>] [8 </mnt/temp/data/coherentImageFormation/
-results/GT.png (PNG copy)> </mnt/temp/data/coherentImageFormation/results/input
-Img.png (PNG copy)> </mnt/temp/data/coherentImageFormation/results/outputImg.pn
-g (PNG copy)> </mnt/temp/data/coherentImageFormation/results/GT1.png (PNG copy)
-> </mnt/temp/data/coherentImageFormation/results/inputImg1.png (PNG copy)> </mn
-t/temp/data/coherentImageFormation/results/outputImg1.png (PNG copy)>]
-(ReportMarch22.aux)
+] [8] (ReportMarch22.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 4524 strings out of 495223
- 71389 string characters out of 3181464
- 226738 words of memory out of 3000000
- 7733 multiletter control sequences out of 15000+200000
+ 4559 strings out of 495223
+ 72861 string characters out of 3181464
+ 226822 words of memory out of 3000000
+ 7763 multiletter control sequences out of 15000+200000
  14644 words of font info for 57 fonts, out of 3000000 for 9000
  0 hyphenation exceptions out of 8191
- 42i,10n,40p,473b,484s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 42i,10n,40p,719b,484s stack positions out of 5000i,500n,10000p,200000b,50000s
 </home/sudarshan/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmbx10
 .pfb></home/sudarshan/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmb
 x12.pfb></home/sudarshan/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/
@@ -595,9 +678,9 @@ pe1/public/amsfonts/cm/cmsy10.pfb></home/sudarshan/.miktex/texmfs/install/fonts
 ts/type1/public/amsfonts/cm/cmsy8.pfb></home/sudarshan/.miktex/texmfs/install/f
 onts/type1/public/amsfonts/cm/cmti10.pfb></home/sudarshan/.miktex/texmfs/instal
 l/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on ReportMarch22.pdf (8 pages, 1306535 bytes).
+Output written on ReportMarch22.pdf (8 pages, 1406229 bytes).
 PDF statistics:
- 138 PDF objects out of 1000 (max. 8388607)
+ 169 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 126 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 151 words of extra memory for PDF output out of 10000 (max. 10000000)
 

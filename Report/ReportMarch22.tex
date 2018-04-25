@@ -200,11 +200,116 @@ where $\sigma_n^2=\beta \sigma_\lambda^2$ and $\tilde{v}=r+u$. The denosing oper
 \end{algorithmic}
 \label{alg:PnP}
 \end{algorithm}
-
 \subsubsection{Parameter-tuning}
 In the following analysis we assume that we know the true-value of $\sigma_w$. The parameters to be tuned for the problem are $\sigma_\lambda, \sigma_n$; which are essentially the tuning parameters for each of the proximal-operators (inversion and denoising). 
-\clearpage
-\newpage
+\clearpage 
+\newpage 
+\subsection{Direct CNN-approach}
+Recently we have tried another direct CNN approach to directly learn the mapping from $|y|$ to $r$. In this approach we learn the mapping from $|y|$ to $r$ by training a convolutional neural network (CNN) on the image pairs from the phase-less measurements to the reflectance of the object. The network architecture that we use follows from the network that has been used for the perceptual-loss extraction paper in SRNET \cite{SRNET}. \\
+The architecture that we used is outlined in Tables~\ref{networkArch}. A residual and convolution block is shown in Figures~\ref{residualConvBlock}. The results of using testing the trained CNN on the test data is shown in Figure~\ref{fig:outputFig}. An evaluation of the hyperparameter of the learning rate is shown in Figure~\ref{fig:learningRate}. We note the variation of the training error as the learning-rate parameter is changed in the experiments. The multi-image results with the trained CNN is shown in Figure~\ref{fig:avgFig}. This figure indicates that it is performing better in comparison to the approach of the plug and play approach used with the EM algorithm. 
+
+\begin{minipage}{\textwidth}
+  \begin{minipage}[b]{0.45\textwidth}
+    \centering
+\includegraphics[width=0.8\textwidth]{../Figures/residualConvBlock.pdf}
+    \captionof{figure}{A sample residual and conolutional block.}
+  \label{residualConvBlock}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[b]{0.45\textwidth}
+    \centering
+\includegraphics[width=0.8\textwidth]{/mnt/temp/data/coherentImageFormation/results/learning_rate_comparison.pdf}
+    \captionof{figure}{A comparison of training errors for different learning-rates.}
+  \label{fig:learningRate}
+  \end{minipage}
+  \end{minipage}
+\begin{table}[h]
+\centering
+\begin{tabular}{ | c | c |}
+    \hline
+    Layer & Activation-size  \\ \hline
+    Input & $3\times 224 \times 224$  \\ \hline
+    $64 \times 9\times 9$ convBlock & $64 \times 224 \times 224$  \\ \hline
+    Residual block $64$ filters& $64 \times 224 \times 224$  \\ \hline
+    Residual block $64$ filters& $64 \times 224 \times 224$  \\ \hline
+    Residual block $64$ filters& $64 \times 224 \times 224$  \\ \hline
+    Residual block $64$ filters& $64 \times 224 \times 224$  \\ \hline
+    $64 \times 3 \times 3$ convBlock & $64 \times 224 \times 224$  \\ \hline
+    $3 \times 9\times 9$ conv2d & $3 \times 224 \times 224$  \\ \hline
+    batchNormalization & $3$  \\ \hline
+    \end{tabular}
+      \captionof{table}{Network architecture used for the direct CNN based reflectance retrieval.}
+\label{networkArch}
+\end{table}
+\begin{figure}[!h]
+\centering
+\begin{subfigure}[b]{0.22\textwidth}
+        \includegraphics[width=\textwidth]{/mnt/temp/data/coherentImageFormation/results/GT.png}
+        \caption{GT}
+        \label{fig:GT}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.22\textwidth}
+        \includegraphics[width=\textwidth]{/mnt/temp/data/coherentImageFormation/results/inputImg.png}
+        \caption{Input image}
+        \label{fig:inputImg}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.22\textwidth}
+        \includegraphics[width=\textwidth]{/mnt/temp/data/coherentImageFormation/results/outputImg.png}
+        \caption{Output-Img}
+        \label{fig:outputImg}
+    \end{subfigure}
+\caption{The learning-rate used to define this network is $0.01$ with a step-decay parameter of $0.1$ and a step-list being $[10, 25]$. The number of training-epochs is $100$.}
+\label{fig:outputFig}
+\end{figure}
+
+\begin{figure}[!h]
+\centering
+\begin{subfigure}[b]{0.22\textwidth}
+        \includegraphics[width=\textwidth]{/mnt/temp/data/coherentImageFormation/results/GT1.png}
+        \caption{GT}
+        \label{fig:GT}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.22\textwidth}
+        \includegraphics[width=\textwidth]{/mnt/temp/data/coherentImageFormation/results/inputImg1.png}
+        \caption{Input image}
+        \label{fig:inputImg}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.22\textwidth}
+        \includegraphics[width=\textwidth]{/mnt/temp/data/coherentImageFormation/results/outputImg1.png}
+        \caption{Output-Img}
+        \label{fig:outputImg}
+    \end{subfigure}
+\caption{The learning-rate used to define this network is $0.01$ with a step-decay parameter of $0.1$ and a step-list being $[10, 25]$. The number of training-epochs is $100$. We use a deeper-architecture in comparison to the SRNET architecture.}
+\label{fig:outputFig}
+\end{figure}
+
+\begin{figure}[!h]
+\centering
+\begin{subfigure}[b]{0.22\textwidth}
+        \includegraphics[width=\textwidth]{/mnt/temp/data/coherentImageFormation/results/avg1.png}
+        \caption{$N = 1$}
+        \label{fig:avg1}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.22\textwidth}
+        \includegraphics[width=\textwidth]{/mnt/temp/data/coherentImageFormation/results/avg3.png}
+        \caption{$N = 3$}
+        \label{fig:avg3}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.22\textwidth}
+        \includegraphics[width=\textwidth]{/mnt/temp/data/coherentImageFormation/results/avg6.png}
+        \caption{$N = 6$}
+        \label{fig:avg6}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.22\textwidth}
+        \includegraphics[width=\textwidth]{/mnt/temp/data/coherentImageFormation/results/avg20.png}
+        \caption{$N = 20$}
+        \label{fig:avg20}
+    \end{subfigure}
+\caption{Multi-image CNN algorithm for: For the image with $\sigma_w=1e^{-3}$.}
+\label{fig:avgFig}
+\end{figure}
+\clearpage 
+\newpage 
 \subsection{Regularization by denoising}
 Recently there has been an alternative approach instead of the ADMM or Plug-and-Play ($P^3$) approach: regularization by denoising \cite{RED}. The key idea of the paper is the regularization proposed in the paper:
 \begin{eqnarray*}
@@ -254,79 +359,6 @@ where
 \begin{eqnarray*}
 \nabla_rE(r)&=& \left(\sum_{i=1}^N \frac{1}{2\pi(r_i+\sigma_w^2)}-\frac{|y_i|^2}{(r_i+\sigma_w^2)^2}\right)+\lambda(r-f(r)). 
 \end{eqnarray*}
-
-\clearpage 
-\newpage 
-\subsection{Direct CNN-approach}
-Recently we have tried another direct CNN approach to directly learn the mapping from $|y|$ to $r$. In this approach we learn the mapping from $|y|$ to $r$ by training a convolutional neural network (CNN) on the image pairs from the phase-less measurements to the reflectance of the object. The network architecture that we use follows from the network that has been used for the perceptual-loss extraction paper in SRNET \cite{SRNET}. \\
-The architecture that we used is outlined in Tables~\ref{networkArch}. A residual and convolution block is shown in Figures~\ref{residualConvBlock}. The results of using testing the trained CNN on the test data is shown in Figure~\ref{fig:outputFig}. 
-\begin{figure}
-\centering
-\includegraphics[width=0.5\textwidth]{../Figures/residualConvBlock.pdf}
-\caption{A sample residual and conolutional block.}
-\label{residualConvBlock}
-\end{figure}
-
-\begin{table}
-\begin{center}
-    \begin{tabular}{ | c | c |}
-    \hline
-    Layer & Activation-size  \\ \hline
-    Input & $3\times 224 \times 224$  \\ \hline
-    $64 \times 9\times 9$ convBlock & $64 \times 224 \times 224$  \\ \hline
-    Residual block $64$ filters& $64 \times 224 \times 224$  \\ \hline
-    Residual block $64$ filters& $64 \times 224 \times 224$  \\ \hline
-    Residual block $64$ filters& $64 \times 224 \times 224$  \\ \hline
-    Residual block $64$ filters& $64 \times 224 \times 224$  \\ \hline
-    $64 \times 3 \times 3$ convBlock & $64 \times 224 \times 224$  \\ \hline
-    $3 \times 9\times 9$ conv2d & $3 \times 224 \times 224$  \\ \hline
-    batchNormalization & $3$  \\ \hline
-    \end{tabular}
-\end{center}
-\caption{Network architecture used to generate results in Figure~\ref{fig:outputFig}.}
-\label{networkArch}
-\end{table}
-\begin{figure}[!h]
-\centering
-\begin{subfigure}[b]{0.22\textwidth}
-        \includegraphics[width=\textwidth]{/mnt/temp/data/coherentImageFormation/results/GT.png}
-        \caption{GT}
-        \label{fig:GT}
-    \end{subfigure}
-    \begin{subfigure}[b]{0.22\textwidth}
-        \includegraphics[width=\textwidth]{/mnt/temp/data/coherentImageFormation/results/inputImg.png}
-        \caption{Input image}
-        \label{fig:inputImg}
-    \end{subfigure}
-    \begin{subfigure}[b]{0.22\textwidth}
-        \includegraphics[width=\textwidth]{/mnt/temp/data/coherentImageFormation/results/outputImg.png}
-        \caption{Output-Img}
-        \label{fig:outputImg}
-    \end{subfigure}
-\caption{The learning-rate used to define this network is $0.01$ with a step-decay parameter of $0.1$ and a step-list being $[10, 25]$. The number of training-epochs is $100$.}
-\label{fig:outputFig}
-\end{figure}
-
-\begin{figure}[!h]
-\centering
-\begin{subfigure}[b]{0.22\textwidth}
-        \includegraphics[width=\textwidth]{/mnt/temp/data/coherentImageFormation/results/GT1.png}
-        \caption{GT}
-        \label{fig:GT}
-    \end{subfigure}
-    \begin{subfigure}[b]{0.22\textwidth}
-        \includegraphics[width=\textwidth]{/mnt/temp/data/coherentImageFormation/results/inputImg1.png}
-        \caption{Input image}
-        \label{fig:inputImg}
-    \end{subfigure}
-    \begin{subfigure}[b]{0.22\textwidth}
-        \includegraphics[width=\textwidth]{/mnt/temp/data/coherentImageFormation/results/outputImg1.png}
-        \caption{Output-Img}
-        \label{fig:outputImg}
-    \end{subfigure}
-\caption{The learning-rate used to define this network is $0.01$ with a step-decay parameter of $0.1$ and a step-list being $[10, 25]$. The number of training-epochs is $100$. We use a deeper-architecture in comparison to the SRNET architecture.}
-\label{fig:outputFig}
-\end{figure}
 
 \begin{thebibliography}{9}
 \bibitem{CaseyOpticallyCoherent} Casey J. Pellizzari et al. \emph{Optically coherent image formation and denoising using a plug and play inversion framework in OSA}.
