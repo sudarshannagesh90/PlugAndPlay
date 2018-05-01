@@ -241,28 +241,8 @@ The architecture that we used is outlined in Tables~\ref{networkArch}. A residua
       \captionof{table}{Network architecture used for the direct CNN based reflectance retrieval.}
 \label{networkArch}
 \end{table}
-\begin{figure}[!h]
-\centering
-\begin{subfigure}[b]{0.22\textwidth}
-        \includegraphics[width=\textwidth]{/mnt/temp/data/coherentImageFormation/results/GT.png}
-        \caption{GT}
-        \label{fig:GT}
-    \end{subfigure}
-    \begin{subfigure}[b]{0.22\textwidth}
-        \includegraphics[width=\textwidth]{/mnt/temp/data/coherentImageFormation/results/inputImg.png}
-        \caption{Input image}
-        \label{fig:inputImg}
-    \end{subfigure}
-    \begin{subfigure}[b]{0.22\textwidth}
-        \includegraphics[width=\textwidth]{/mnt/temp/data/coherentImageFormation/results/outputImg.png}
-        \caption{Output-Img}
-        \label{fig:outputImg}
-    \end{subfigure}
-\caption{The learning-rate used to define this network is $0.01$ with a step-decay parameter of $0.1$ and a step-list being $[10, 25]$. The number of training-epochs is $100$.}
-\label{fig:outputFig}
-\end{figure}
 
-\begin{figure}[!h]
+\begin{figure}[h]
 \centering
 \begin{subfigure}[b]{0.22\textwidth}
         \includegraphics[width=\textwidth]{/mnt/temp/data/coherentImageFormation/results/GT1.png}
@@ -283,7 +263,7 @@ The architecture that we used is outlined in Tables~\ref{networkArch}. A residua
 \label{fig:outputFig}
 \end{figure}
 
-\begin{figure}[!h]
+\begin{figure}[h]
 \centering
 \begin{subfigure}[b]{0.22\textwidth}
         \includegraphics[width=\textwidth]{/mnt/temp/data/coherentImageFormation/results/avg1.png}
@@ -305,7 +285,85 @@ The architecture that we used is outlined in Tables~\ref{networkArch}. A residua
         \caption{$N = 20$}
         \label{fig:avg20}
     \end{subfigure}
-\caption{Multi-image CNN algorithm for: For the image with $\sigma_w=1e^{-3}$.}
+\caption{CNN algorithm applied for multiple images: The noise in each of the images is $\sigma_w=1e^{-3}$.}
+\label{fig:avgFig}
+\end{figure}
+\subsubsection{Perceptual loss-function}
+Following the paper \cite{SRNET}, we investigate the idea of incorporating prior-information from a pre-trained image-classifier into the CNN algorithm that is used for denoising the speckle pattern. Since we are investigating the reconstruction performance of the algorithms on gray-scale images, we trained a gray-scale image classifier. The architecture of the classifier we used is given in the following Figure~\ref{fig:ArchClassifier}. We use the features from the classifier trained with a different parameter to extract the information from the image. Concretely, we solve the following optimization problem while we solve for the neural-network:
+\begin{figure}[!h]
+\centering
+ \includegraphics[width=0.5\textwidth]{../Figures/classifier.png}
+\caption{Architecture of the image-classifier}
+\label{fig:ArchClassifier}
+\end{figure}
+\begin{eqnarray*} 
+NN=\underset{W,b}{\argmin}\|\hat{y}-y\|_2^2. 
+\end{eqnarray*}
+The output from the denoising framework for the different classifiers is given as 
+ \begin{figure}[h]
+\centering
+\begin{subfigure}[b]{0.22\textwidth}
+        \includegraphics[width=\textwidth]{/mnt/temp/data/coherentImageFormation/results/outputImg1simpleClassifier42.png}
+        \caption{Accuracy: $42\%$}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.22\textwidth}
+        \includegraphics[width=\textwidth]{/mnt/temp/data/coherentImageFormation/results/outputImg1simpleClassifier58.png}
+        \caption{Accuracy: $58\%$}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.22\textwidth}
+        \includegraphics[width=\textwidth]{/mnt/temp/data/coherentImageFormation/results/outputImg1vggClassifier67.png}
+        \caption{Accuracy: $67\%$}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.22\textwidth}
+        \includegraphics[width=\textwidth]{/mnt/temp/data/coherentImageFormation/results/outputImg1.png}
+        \caption{$\ell_2$ cost-function}
+    \end{subfigure}
+\caption{Comparison of perceptual loss and $\ell_2$ loss-function.}
+\end{figure}
+The results comparing the performance of the $67\%$ accurate classifier versus the $\ell_2$ loss-function for multiple images is given next:
+\begin{figure}[h]
+\centering
+\begin{subfigure}[b]{0.22\textwidth}
+        \includegraphics[width=\textwidth]{/mnt/temp/data/coherentImageFormation/results/avg1.png}
+        \caption{$N = 1$}
+        \label{fig:avg1}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.22\textwidth}
+        \includegraphics[width=\textwidth]{/mnt/temp/data/coherentImageFormation/results/avg3.png}
+        \caption{$N = 3$}
+        \label{fig:avg3}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.22\textwidth}
+        \includegraphics[width=\textwidth]{/mnt/temp/data/coherentImageFormation/results/avg6.png}
+        \caption{$N = 6$}
+        \label{fig:avg6}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.22\textwidth}
+        \includegraphics[width=\textwidth]{/mnt/temp/data/coherentImageFormation/results/avg20.png}
+        \caption{$N = 20$}
+        \label{fig:avg20}
+    \end{subfigure}
+\begin{subfigure}[b]{0.22\textwidth}
+        \includegraphics[width=\textwidth]{/mnt/temp/data/coherentImageFormation/results/avg1vggClassifier67.png}
+        \caption{$N = 1$}
+        \label{fig:avg1}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.22\textwidth}
+        \includegraphics[width=\textwidth]{/mnt/temp/data/coherentImageFormation/results/avg3vggClassifier67.png}
+        \caption{$N = 3$}
+        \label{fig:avg3}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.22\textwidth}
+        \includegraphics[width=\textwidth]{/mnt/temp/data/coherentImageFormation/results/avg6vggClassifier67.png}
+        \caption{$N = 6$}
+        \label{fig:avg6}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.22\textwidth}
+        \includegraphics[width=\textwidth]{/mnt/temp/data/coherentImageFormation/results/avg20vggClassifier67.png}
+        \caption{$N = 20$}
+        \label{fig:avg20}
+    \end{subfigure}
+\caption{(a)-(d) Performance of the $\ell_2$ loss-classifier. (e)-(h) Performance of the $67\%$ accurate classifier. }
 \label{fig:avgFig}
 \end{figure}
 \clearpage 
@@ -357,9 +415,9 @@ The RED algorithm for using this procedure is of the form
 \end{eqnarray*}
 where 
 \begin{eqnarray*}
-\nabla_rE(r)&=& \left(\sum_{i=1}^N \frac{1}{2\pi(r_i+\sigma_w^2)}-\frac{|y_i|^2}{(r_i+\sigma_w^2)^2}\right)+\lambda(r-f(r)). 
+\nabla_rE(r_i)&=& \left( \frac{1}{2\pi(r_i+\sigma_w^2)}-\frac{|y_i|^2}{(r_i+\sigma_w^2)^2}\right)+\lambda(r_i-f(r_i)). 
 \end{eqnarray*}
-
+Results to be completed...
 \begin{thebibliography}{9}
 \bibitem{CaseyOpticallyCoherent} Casey J. Pellizzari et al. \emph{Optically coherent image formation and denoising using a plug and play inversion framework in OSA}.
 \bibitem{PnPalgorithm} S.~V.~Venkatakrishnan et al. \emph{Plug-and-play priors for model based reconstruction in GLOBALSIP}.
